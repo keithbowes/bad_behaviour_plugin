@@ -37,7 +37,7 @@ class bad_behaviour_plugin extends Plugin
 	var $code = 'b2_bad_behaviour';
 	var $priority = 50;
 	var $version = '0.2';
-	var $author = 'http://waltercruz.com/';
+	var $author = 'https://github.com/keithbowes/bad_behaviour_plugin';
 	var $help_url = '';
 	var $group = 'antispam';
 
