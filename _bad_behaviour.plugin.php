@@ -52,6 +52,7 @@ class bad_behaviour_plugin extends Plugin
 	function PluginInit( & $params )
 	{
 		$this->short_desc = $this->T_('The Web\'s premier link spam killer.');
+		$this->GetDbLayout();
 	}
 
 
@@ -101,7 +102,7 @@ class bad_behaviour_plugin extends Plugin
 				'label' => $this->T_('Logging'),
 				'type' => 'checkbox',
 				'note' => $this->T_('HTTP request logging (recommended)'),
-				'defaultvalue' =>1,
+				'defaultvalue' => 1,
 			),
 			'display_stats' => array(
 				'label' => $this->T_('Display Stats'),
@@ -128,7 +129,7 @@ class bad_behaviour_plugin extends Plugin
 				'defaultvalue' => '30',
 			),
 			'eu_cookie' => array(
-				'label' => $this->T_('Strict EU ccokies'),
+				'label' => $this->T_('Strict EU cookies'),
 				'type' => 'checkbox',
 				'defaultvalue' => 0,
 				'note' => $this->T_('Disables cookie-based filters'),
@@ -151,10 +152,7 @@ class bad_behaviour_plugin extends Plugin
 
 			if ($res !== FALSE)
 			{
-				echo $params['block_start'];
-				echo $params['block_title_start'] . 'Bad Behaviour'. $params['block_title_end'];
 				echo sprintf('<p><a href="http://www.bad-behavior.ioerror.us/">%1$s</a> %2$s <strong>%3$s</strong> %4$s</p>', $this->T_('Bad Behavior'), $this->T_('has blocked'), $res, $this->T_('access attempts in the last 7 days.'));
-				echo $params['block_end'];
 			}
 		}
 	}

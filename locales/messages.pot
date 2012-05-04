@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Francois PLANQUE
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://fplanque.net/\n"
+"POT-Creation-Date: 2012-05-04 01:36-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../_bad_behaviour.plugin.php:54
+msgid "The Web's premier link spam killer."
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:96
+msgid "Strict"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:99
+msgid "Strict checking (blocks more spam but may block some people)"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:102
+msgid "Logging"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:104
+msgid "HTTP request logging (recommended)"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:108
+msgid "Display Stats"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:113
+msgid "Verbose Logging"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:116
+msgid "Verbose logging"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:119
+msgid "http:BL Access Key"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:124
+msgid "Minimum Threat Level (25 is recommended)"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:128
+msgid "Maximum Age of Data (30 is recommended)"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:132
+msgid "Strict EU cookies"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:135
+msgid "Disables cookie-based filters"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:155
+msgid "Bad Behavior"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:155
+msgid "access attempts in the last 7 days."
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:155
+msgid "has blocked"
+msgstr ""
