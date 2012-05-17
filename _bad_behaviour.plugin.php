@@ -83,8 +83,8 @@ class bad_behaviour_plugin extends Plugin
 
 	function BeforeBlogDisplay ( $params )
 	{
-		bb2_start(bb2_read_settings());
-
+		global $bb2_result;
+		$bb2_result = bb2_start(bb2_read_settings());
 	}
 	/**
 	 * Define settings that the plugin uses/provides.
@@ -141,19 +141,23 @@ class bad_behaviour_plugin extends Plugin
 
 	function SkinEndHtmlBody( $params )
 	{
-		global $DB;
+		global $bb2_result;
 		$settings = bb2_read_settings();
 		$dbname = $settings['log_table'];
 
 		if ($settings['display_stats'])
 		{
 			$query = "SELECT COUNT(*) FROM $dbname WHERE `key` NOT LIKE '00000000'";
-			$res = $DB->get_var( $query );
+			$blocked = bb2_db_query( $query );
 
-			if ($res !== FALSE)
+			if ($blocked !== FALSE)
 			{
-				echo sprintf('<p><a href="http://www.bad-behavior.ioerror.us/">%1$s</a> %2$s <strong>%3$s</strong> %4$s</p>', $this->T_('Bad Behavior'), $this->T_('has blocked'), $res, $this->T_('access attempts in the last 7 days.'));
+				echo sprintf('<p><a href="http://www.bad-behavior.ioerror.us/">%1$s</a> %2$s <strong>%3$s</strong> %4$s</p>', $this->T_('Bad Behavior'), $this->T_('has blocked'), $blocked[0]["COUNT(*)"], $this->T_('access attempts in the last 7 days.'));
 			}
+		}
+		if (@!empty($bb2_result)) {
+		echo sprintf("\n" . $this->T_("<!-- %s result was %s! This request would have been blocked. -->\n"), $this->T_('Bad Behavior'), $bb2_result);
+		unset($bb2_result);
 		}
 	}
 
@@ -264,11 +268,33 @@ function bb2_write_settings($settings) {
 	return false;
 }
 
+function bb2_approved_callback($settings, $package) {
+	global $bb2_package;
+
+	// Save package for possible later use
+	$bb2_package = $package;
+}
+
+// Capture missed spam and log it
+function bb2_capture_spam($id, $comment) {
+	global $bb2_package;
+
+	// Capture only spam
+	if ('spam' != $comment->comment_approved) return;
+
+	// Don't capture if HTTP request no longer active
+	if (array_key_exists("request_entity", $bb2_package) && array_key_exists("author", $bb2_package['request_entity']) && $bb2_package['request_entity']['author'] == $comment->comment_author) {
+		bb2_db_query(bb2_insert(bb2_read_settings(), $bb2_package, "00000000"));
+	}
+}
+
 // Return the top-level relative path of wherever we are (for cookies)
 function bb2_relative_path() {
 	global $Blog;
 	$url = parse_url($Blog->gen_baseurl());
-	return $url['path'];
+	if (array_key_exists('path', $url))
+		return $url['path'];
+	return '';
 }
 
 function bb2_db_date() {

@@ -1,13 +1,12 @@
 # Bad Behavior plugin for b2evolution.
 # Copyright (C) YEAR Francois PLANQUE
 # This file is distributed under the same license as the PACKAGE package.
-
 msgid ""
 msgstr ""
 "Project-Id-Version: bad_behaviour_plugin 0.2\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
-"POT-Creation-Date: 2012-05-04 01:28-0400\n"
-"PO-Revision-Date: 2012-05-04 01:38-0400\n"
+"POT-Creation-Date: 2012-05-17 02:12-0400\n"
+"PO-Revision-Date: 2012-05-17 02:14-0400\n"
 "Language-Team: eo\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -67,6 +66,7 @@ msgid "Disables cookie-based filters"
 msgstr "Malaktivigas filtrilojn bazitajn sur kuketoj"
 
 #: ../../../_bad_behaviour.plugin.php:155
+#: ../../../_bad_behaviour.plugin.php:159
 msgid "Bad Behavior"
 msgstr "Riproĉinda Konduto"
 
@@ -77,3 +77,8 @@ msgstr "atingo-penojn dum la lastaj 7 tagoj."
 #: ../../../_bad_behaviour.plugin.php:155
 msgid "has blocked"
 msgstr "estas barinta"
+
+#: ../../../_bad_behaviour.plugin.php:159
+#, php-format
+msgid "<!-- %s result was %s! This request would have been blocked. -->\n"
+msgstr "<!-- La rezulto el %s estis %s! Ĉi tiu peto estus estinta barita. -->\n"

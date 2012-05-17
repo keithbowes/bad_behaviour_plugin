@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
-"POT-Creation-Date: 2012-05-04 01:36-0400\n"
+"POT-Creation-Date: 2012-05-17 02:12-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,6 +70,7 @@ msgid "Disables cookie-based filters"
 msgstr ""
 
 #: ../../../_bad_behaviour.plugin.php:155
+#: ../../../_bad_behaviour.plugin.php:159
 msgid "Bad Behavior"
 msgstr ""
 
@@ -79,4 +80,9 @@ msgstr ""
 
 #: ../../../_bad_behaviour.plugin.php:155
 msgid "has blocked"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:159
+#, php-format
+msgid "<!-- %s result was %s! This request would have been blocked. -->\n"
 msgstr ""
