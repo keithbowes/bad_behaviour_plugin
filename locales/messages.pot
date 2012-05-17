@@ -84,5 +84,5 @@ msgstr ""
 
 #: ../../../_bad_behaviour.plugin.php:159
 #, php-format
-msgid "<!-- %s result was %s! This request would have been blocked. -->\n"
+msgid "\n<!-- %s result was %s! This request would have been blocked. -->\n"
 msgstr ""

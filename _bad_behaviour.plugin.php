@@ -156,7 +156,7 @@ class bad_behaviour_plugin extends Plugin
 			}
 		}
 		if (@!empty($bb2_result)) {
-		echo sprintf("\n" . $this->T_("<!-- %s result was %s! This request would have been blocked. -->\n"), $this->T_('Bad Behavior'), $bb2_result);
+		echo sprintf($this->T_("\n<!-- %s result was %s! This request would have been blocked. -->\n"), $this->T_('Bad Behavior'), $bb2_result);
 		unset($bb2_result);
 		}
 	}

@@ -24,7 +24,7 @@ $trans['eo_EO'] = array(
 'Bad Behavior' => 'Riproĉinda Konduto',
 'access attempts in the last 7 days.' => 'atingo-penojn dum la lastaj 7 tagoj.',
 'has blocked' => 'estas barinta',
-"<!-- %s result was %s! This request would have been blocked. -->\n" => "<!-- La rezulto el %s estis %s! Ĉi tiu peto estus estinta barita. -->\n",
+"\n<!-- %s result was %s! This request would have been blocked. -->\n" => "\n<!-- La rezulto el %s estis %s! Ĉi tiu peto estus estinta barita. -->\n",
 
 );
 ?>
