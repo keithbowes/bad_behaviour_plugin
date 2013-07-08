@@ -147,7 +147,7 @@ class bad_behaviour_plugin extends Plugin
 
 		if ($settings['display_stats'])
 		{
-			$query = "SELECT COUNT(*) FROM $dbname WHERE `request_key` NOT LIKE '00000000'";
+			$query = "SELECT COUNT(*) FROM $dbname WHERE `kkey` NOT LIKE '00000000'";
 			$blocked = bb2_db_query( $query );
 
 			if ($blocked !== FALSE)

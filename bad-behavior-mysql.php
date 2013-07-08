@@ -15,7 +15,7 @@ function bb2_table_structure($name)
 		`http_headers` TEXT NOT NULL,
 		`user_agent` TEXT NOT NULL,
 		`request_entity` TEXT NOT NULL,
-		`request_key` TEXT NOT NULL,
+		`kkey` TEXT NOT NULL,
 		INDEX (`ip`(15)),
 		INDEX (`user_agent`(10)),
 		PRIMARY KEY (`id`) );";	// TODO: INDEX might need tuning
@@ -42,6 +42,6 @@ function bb2_insert($settings, $package, $key)
 		}
 	}
 	return "INSERT INTO `" . bb2_db_escape($settings['log_table']) . "`
-		(`ip`, `date`, `request_method`, `request_uri`, `server_protocol`, `http_headers`, `user_agent`, `request_entity`, `request_key`) VALUES
+		(`ip`, `date`, `request_method`, `request_uri`, `server_protocol`, `http_headers`, `user_agent`, `request_entity`, `kkey`) VALUES
 		('$ip', '$date', '$request_method', '$request_uri', '$server_protocol', '$headers', '$user_agent', '$request_entity', '$key')";
 }
