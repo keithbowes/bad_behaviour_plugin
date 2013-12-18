@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
-"POT-Creation-Date: 2012-05-17 02:12-0400\n"
+"POT-Creation-Date: 2013-12-17 05:21-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,72 +17,146 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../_bad_behaviour.plugin.php:54
+#: ../../../_bad_behaviour.plugin.php:49
+msgid "Bad Behaviour Plugin for b2evolution"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:50
 msgid "The Web's premier link spam killer."
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:96
+#: ../../../_bad_behaviour.plugin.php:76
+#: ../../../_bad_behaviour.plugin.php:199
+#: ../../../_bad_behaviour.plugin.php:203
+msgid "Bad Behaviour"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:76
+msgid "milliseconds"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:76
+msgid "run time: "
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:100
 msgid "Strict"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:99
+#: ../../../_bad_behaviour.plugin.php:103
 msgid "Strict checking (blocks more spam but may block some people)"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:102
+#: ../../../_bad_behaviour.plugin.php:106
 msgid "Logging"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:104
+#: ../../../_bad_behaviour.plugin.php:108
 msgid "HTTP request logging (recommended)"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:108
+#: ../../../_bad_behaviour.plugin.php:112
 msgid "Display Stats"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:113
+#: ../../../_bad_behaviour.plugin.php:117
 msgid "Verbose Logging"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:116
-msgid "Verbose logging"
+#: ../../../_bad_behaviour.plugin.php:120
+msgid "Log all requests"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:119
+#: ../../../_bad_behaviour.plugin.php:123
 msgid "http:BL Access Key"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:124
+#: ../../../_bad_behaviour.plugin.php:128
 msgid "Minimum Threat Level (25 is recommended)"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:128
+#: ../../../_bad_behaviour.plugin.php:133
 msgid "Maximum Age of Data (30 is recommended)"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:132
+#: ../../../_bad_behaviour.plugin.php:138
+msgid "Offsite forms"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:140
+msgid "Allow forms submitted from other websites"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:144
 msgid "Strict EU cookies"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:135
+#: ../../../_bad_behaviour.plugin.php:147
 msgid "Disables cookie-based filters"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:155
-#: ../../../_bad_behaviour.plugin.php:159
-msgid "Bad Behavior"
+#: ../../../_bad_behaviour.plugin.php:150
+msgid "Reverse Proxy"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:155
+#: ../../../_bad_behaviour.plugin.php:152
+msgid "This site is behind a reverse proxy"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:156
+msgid "Reverse proxy header"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:161
+msgid "Reverse proxy addresses"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:163
+msgid "List of IP addresses of your reverse proxy.  "
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:163
+#: ../../../_bad_behaviour.plugin.php:170
+#: ../../../_bad_behaviour.plugin.php:175
+#: ../../../_bad_behaviour.plugin.php:180
+msgid "One per line."
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:168
+msgid "Whitelist IP addresses"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:170
+msgid "List of IP addresses that are never filtered.  "
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:173
+msgid "Whitelist user agents"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:175
+msgid "List of user agents that are never filtered.  "
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:178
+msgid "Whitelist URLs"
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:180
+msgid "List of URLs that are never filtered.  "
+msgstr ""
+
+#: ../../../_bad_behaviour.plugin.php:199
 msgid "access attempts in the last 7 days."
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:155
+#: ../../../_bad_behaviour.plugin.php:199
 msgid "has blocked"
 msgstr ""
 
-#: ../../../_bad_behaviour.plugin.php:159
+#: ../../../_bad_behaviour.plugin.php:203
 #, php-format
-msgid "\n<!-- %s result was %s! This request would have been blocked. -->\n"
+msgid ""
+"\n"
+"<!-- %s result was %s! This request would have been blocked. -->\n"
 msgstr ""

@@ -5,80 +5,156 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bad_behaviour_plugin 0.2\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
-"POT-Creation-Date: 2012-05-17 02:12-0400\n"
-"PO-Revision-Date: 2012-05-17 02:28-0400\n"
+"POT-Creation-Date: 2013-12-17 05:21-0500\n"
+"PO-Revision-Date: 2013-12-17 21:44-0500\n"
 "Language-Team: eo\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../_bad_behaviour.plugin.php:54
-msgid "The Web's premier link spam killer."
-msgstr "La unua haltigilo de ligilaj spamaĵoj en la TTT."
+#: ../../../_bad_behaviour.plugin.php:49
+msgid "Bad Behaviour Plugin for b2evolution"
+msgstr "La kromprogramo Bad Behaviour (Riproĉinda Konduto) por b2evolution"
 
-#: ../../../_bad_behaviour.plugin.php:96
+#: ../../../_bad_behaviour.plugin.php:50
+msgid "The Web's premier link spam killer."
+msgstr "La unuaranga haltigilo de la ligilaj spamaĵoj en la TTT."
+
+#: ../../../_bad_behaviour.plugin.php:76
+#: ../../../_bad_behaviour.plugin.php:199
+#: ../../../_bad_behaviour.plugin.php:203
+msgid "Bad Behaviour"
+msgstr "Bad Behaviour (Riproĉinda Konduto)"
+
+#: ../../../_bad_behaviour.plugin.php:76
+msgid "milliseconds"
+msgstr "milisekundoj"
+
+#: ../../../_bad_behaviour.plugin.php:76
+msgid "run time: "
+msgstr "plenumtempo: "
+
+#: ../../../_bad_behaviour.plugin.php:100
 msgid "Strict"
 msgstr "Severa"
 
-#: ../../../_bad_behaviour.plugin.php:99
+#: ../../../_bad_behaviour.plugin.php:103
 msgid "Strict checking (blocks more spam but may block some people)"
-msgstr "Severa kontrolado (baras pli da spamaĵoj, sed eble baros homojn)"
+msgstr "Severa kontrolado (baros pli da spamaĵoj, sed eble baros homojn)"
 
-#: ../../../_bad_behaviour.plugin.php:102
+#: ../../../_bad_behaviour.plugin.php:106
 msgid "Logging"
 msgstr "Protokolado"
 
-#: ../../../_bad_behaviour.plugin.php:104
+#: ../../../_bad_behaviour.plugin.php:108
 msgid "HTTP request logging (recommended)"
 msgstr "Protokolado de HTTP-petoj (rekomendinda)"
 
-#: ../../../_bad_behaviour.plugin.php:108
+#: ../../../_bad_behaviour.plugin.php:112
 msgid "Display Stats"
 msgstr "Montri statistikaĵojn"
 
-#: ../../../_bad_behaviour.plugin.php:113
+#: ../../../_bad_behaviour.plugin.php:117
 msgid "Verbose Logging"
-msgstr "Klariga protokolado"
+msgstr "Plia protokolado"
 
-#: ../../../_bad_behaviour.plugin.php:116
-msgid "Verbose logging"
-msgstr "Klariga protokolado"
+#: ../../../_bad_behaviour.plugin.php:120
+msgid "Log all requests"
+msgstr "Protokoli ĉiujn petojn"
 
-#: ../../../_bad_behaviour.plugin.php:119
+#: ../../../_bad_behaviour.plugin.php:123
 msgid "http:BL Access Key"
 msgstr "Atinga ŝlosilo por http:BL"
 
-#: ../../../_bad_behaviour.plugin.php:124
+#: ../../../_bad_behaviour.plugin.php:128
 msgid "Minimum Threat Level (25 is recommended)"
 msgstr "Minimuma minaca nivelo (25 estas rekomendinda)"
 
-#: ../../../_bad_behaviour.plugin.php:128
+#: ../../../_bad_behaviour.plugin.php:133
 msgid "Maximum Age of Data (30 is recommended)"
 msgstr "Maksimuma aĝo de datumoj (30 estas rekomendinda)"
 
-#: ../../../_bad_behaviour.plugin.php:132
+#: ../../../_bad_behaviour.plugin.php:138
+msgid "Offsite forms"
+msgstr "Formularioj de aliaj TTT-ejoj"
+
+#: ../../../_bad_behaviour.plugin.php:140
+msgid "Allow forms submitted from other websites"
+msgstr "Permesi formulariojn senditajn de aliaj TTT-ejoj"
+
+#: ../../../_bad_behaviour.plugin.php:144
 msgid "Strict EU cookies"
 msgstr "Severaj EU-kuketoj"
 
-#: ../../../_bad_behaviour.plugin.php:135
+#: ../../../_bad_behaviour.plugin.php:147
 msgid "Disables cookie-based filters"
-msgstr "Malaktivigas filtrilojn bazitajn sur kuketoj"
+msgstr "Malaktivigas filtrilojn bazitaj sur kuketoj"
 
-#: ../../../_bad_behaviour.plugin.php:155
-#: ../../../_bad_behaviour.plugin.php:159
-msgid "Bad Behavior"
-msgstr "Riproĉinda Konduto"
+#: ../../../_bad_behaviour.plugin.php:150
+msgid "Reverse Proxy"
+msgstr "Inversa prokurilo"
 
-#: ../../../_bad_behaviour.plugin.php:155
+#: ../../../_bad_behaviour.plugin.php:152
+msgid "This site is behind a reverse proxy"
+msgstr "La TTT-ejo estas malantaŭ inversa prokurilo"
+
+#: ../../../_bad_behaviour.plugin.php:156
+msgid "Reverse proxy header"
+msgstr "Ĉapo por la inversa prokurilo"
+
+#: ../../../_bad_behaviour.plugin.php:161
+msgid "Reverse proxy addresses"
+msgstr "Adresoj de la inversa prokurilo"
+
+#: ../../../_bad_behaviour.plugin.php:163
+msgid "List of IP addresses of your reverse proxy.  "
+msgstr "Listo de IP-adresoj de via inversa prokurilo. "
+
+#: ../../../_bad_behaviour.plugin.php:163
+#: ../../../_bad_behaviour.plugin.php:170
+#: ../../../_bad_behaviour.plugin.php:175
+#: ../../../_bad_behaviour.plugin.php:180
+msgid "One per line."
+msgstr "Unu en ĉiu linio."
+
+#: ../../../_bad_behaviour.plugin.php:168
+msgid "Whitelist IP addresses"
+msgstr "IP-adresoj en la blankolisto"
+
+#: ../../../_bad_behaviour.plugin.php:170
+msgid "List of IP addresses that are never filtered.  "
+msgstr "Listo de IP-adresoj, kiuj ne filtriĝos. "
+
+#: ../../../_bad_behaviour.plugin.php:173
+msgid "Whitelist user agents"
+msgstr "TTT-legiloj en la blankolisto"
+
+#: ../../../_bad_behaviour.plugin.php:175
+msgid "List of user agents that are never filtered.  "
+msgstr "Listo de TTT-legiloj, kiuj ne filtriĝos. "
+
+#: ../../../_bad_behaviour.plugin.php:178
+msgid "Whitelist URLs"
+msgstr "Retadresoj en la blankolisto"
+
+#: ../../../_bad_behaviour.plugin.php:180
+msgid "List of URLs that are never filtered.  "
+msgstr "Listo de retadresoj, kiuj ne filtriĝos. "
+
+#: ../../../_bad_behaviour.plugin.php:199
 msgid "access attempts in the last 7 days."
-msgstr "atingo-penojn dum la lastaj 7 tagoj."
+msgstr "atingo-penojn dum la pasintaj 7 tagoj."
 
-#: ../../../_bad_behaviour.plugin.php:155
+#: ../../../_bad_behaviour.plugin.php:199
 msgid "has blocked"
 msgstr "estas barinta"
 
-#: ../../../_bad_behaviour.plugin.php:159
+#: ../../../_bad_behaviour.plugin.php:203
 #, php-format
-msgid "\n<!-- %s result was %s! This request would have been blocked. -->\n"
-msgstr "\n<!-- La rezulto el %s estis %s! Ĉi tiu peto estus estinta barita. -->\n"
+msgid ""
+"\n"
+"<!-- %s result was %s! This request would have been blocked. -->\n"
+msgstr ""
+"\n"
+"<!-- La rezulto el %s estis %s! Tiu peto estus estinta barita. -->\n"
