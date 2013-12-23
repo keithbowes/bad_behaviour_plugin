@@ -9,7 +9,8 @@ Your b2evolution layout should be something like in [2].
 KIEL INSTALI
 Ĉi tio estas nur kromprogramo por b2evolution. Por funkciigi ĝin vi devas
 elŝuti la dosierojn el la TTT-ejo de Bad Behavior [1]. Vi devas kopii la
-jenajn dosieron en ĉi tiun dosierujon: bad-behavior-mysql.php.
+dosierujon bad-behavior kaj la dosieron bad-behavior-mysql.php en ĉi tiun
+dosierujon.
 
 La aranĝo de via b2evolution-instalaĵo devas esti kiel en [2].
 

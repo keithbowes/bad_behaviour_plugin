@@ -32,12 +32,16 @@ class bad_behaviour_plugin extends Plugin
 	 */
 	var $code = 'b2_bad_behaviour';
 	var $priority = 50;
-	var $version = '0.2';
+	var $version = '0.4';
 	var $author = 'https://github.com/keithbowes/bad_behaviour_plugin';
-	var $help_url = '';
+	var $help_url = 'http://bad-behavior.ioerror.us/support/';
 	var $group = 'antispam';
 
 	var $apply_rendering = 'opt-in';
+	var $number_of_installs = 1;
+
+	/* Workaround to get Plugin::T_() to work with the plugin admin page */
+	var $plug;
 
 
 	/**
@@ -47,20 +51,46 @@ class bad_behaviour_plugin extends Plugin
 	 */
 	function PluginInit( & $params )
 	{
-		$this->name = $this->T_('Bad Behaviour Plugin for b2evolution');
-		$this->short_desc = $this->T_('The Web\'s premier link spam killer.');
+		if ('enabled' == $params['db_row']['plug_status'])
+		{
+			global $Plugins;
+			$this->plug = $Plugins->get_by_code( 'b2_bad_behaviour' );
+		}
+		else
+			$this->plug = $this;
+		$this->name = $this->plug->T_('Bad Behaviour Plugin for b2evolution');
+		$this->short_desc = $this->plug->T_('The Web\'s premier link spam killer.');
 	}
 
 
 	function GetDbLayout()
 	{
 		$tablename = $this->get_sql_table('bad_behavior');
-		$sql = bb2_table_structure($tablename);
-		$sql = str_replace('0000-00-00 00:00:00','2008-12-08 14:27:46',$sql);
-		return array($sql);
+
+		/* If the table doesn't exist, create it */
+		$res = bb2_db_query("SHOW TABLES LIKE '$tablename'");
+		if (0 == bb2_db_num_rows($res))
+		{
+			return array(bb2_table_structure($tablename));
+		}
+		else
+		{
+			/* If the table does exist, change the old field names 'kkey' and 'request_key' to the new one 'key' */
+			$res = bb2_db_query("SHOW COLUMNS FROM `$tablename`");
+			$num_rows = bb2_db_num_rows($res);
+			for ($i = 1; $num_rows > 1 && $i < $num_rows; $i++)
+			{
+				$field_name = $res[$i]['Field'];
+				if ('kkey' == $field_name || 'request_key' == $field_name)
+				{
+					bb2_db_query("ALTER TABLE `$tablename` CHANGE `$field_name` `key` TEXT NOT NULL");
+					break;
+				}
+			}
+		}
 	}
 
-	function SkinBeginHtmlHead()
+	function SkinBeginHtmlHead( & $params )
 	{
 		global $bb2_timer_total;
 		global $bb2_javascript;
@@ -68,7 +98,7 @@ class bad_behaviour_plugin extends Plugin
 		add_headline($bb2_javascript);
 	}
 
-	function BeforeBlogDisplay ( $params )
+	function BeforeBlogDisplay ( & $params )
 	{
 		global $bb2_result, $bb2_timer_total;
 		$bb2_mtime = explode(" ", microtime());
@@ -92,105 +122,168 @@ class bad_behaviour_plugin extends Plugin
 			return $default;
 	}
 
-	function GetDefaultSettings()
+	function GetDefaultSettings( & $params )
 	{
 		$this->settings = (array) @parse_ini_file(BB2_CWD . '/settings.ini');
 		$whitelist = (array) @parse_ini_file(BB2_CWD . '/whitelist.ini');
 
 		return array(
 			'display_stats' => array(
-				'label' => $this->T_('Display Stats'),
+				'label' => $this->plug->T_('Display Stats'),
 				'type' => 'checkbox',
 				'defaultvalue' => $this->get_default_value('display_stats', 1),
 			),
 			'strict' => array(
-				'label' => $this->T_('Strict'),
+				'label' => $this->plug->T_('Strict'),
 				'type' => 'checkbox',
 				'defaultvalue' => $this->get_default_value('strict', 0),
-				'note' => $this->T_('Strict checking (blocks more spam but may block some people)')
+				'note' => $this->plug->T_('Strict checking (blocks more spam but may block some people)')
 			),
 			'logging' => array(
-				'label' => $this->T_('Logging'),
+				'label' => $this->plug->T_('Logging'),
 				'type' => 'checkbox',
 				'defaultvalue' => $this->get_default_value('logging', 1),
-				'note' => $this->T_('HTTP request logging (recommended)'),
+				'note' => $this->plug->T_('HTTP request logging (recommended)'),
 			),
 			'verbose' => array(
-				'label' => $this->T_('Verbose Logging'),
+				'label' => $this->plug->T_('Verbose Logging'),
 				'type'=>'checkbox',
 				'defaultvalue' => $this->get_default_value('verbose', 0),
-				'note' => $this->T_('Log all requests'),
+				'note' => $this->plug->T_('Log all requests'),
 			),
 			'httpbl_key' =>array(
-				'label' => $this->T_('http:BL Access Key'),
+				'label' => $this->plug->T_('http:BL Access Key'),
 				'type'  => 'text',
 				'maxlength' => 12,
 				'defaultvalue' => $this->get_default_value('httpbl_key', ''),
 			),
 			'httpbl_threat' => array(
-				'label' => $this->T_('Minimum Threat Level (25 is recommended)'),
+				'label' => $this->plug->T_('Minimum Threat Level (25 is recommended)'),
 				'type'  => 'text',
 				'defaultvalue' => $this->get_default_value('httpbl_threat', 25),
 			),
 			'httpbl_maxage' => array(
-				'label' => $this->T_('Maximum Age of Data (30 is recommended)'),
+				'label' => $this->plug->T_('Maximum Age of Data (30 is recommended)'),
 				'type'  => 'text',
 				'defaultvalue' => $this->get_default_value('httpbl_maxage', 30),
 			),
 			'offsite_forms' => array(
-				'label' => $this->T_('Offsite forms'),
+				'label' => $this->plug->T_('Offsite forms'),
 				'type' => 'checkbox',
 				'defaultvalue' => $this->get_default_value('offsete_forms', 0),
-				'note' => $this->T_('Allow forms submitted from other websites'),
+				'note' => $this->plug->T_('Allow forms submitted from other websites'),
 			),
 			'eu_cookie' => array(
-				'label' => $this->T_('Strict EU cookies'),
+				'label' => $this->plug->T_('Strict EU cookies'),
 				'type' => 'checkbox',
 				'defaultvalue' => $this->get_default_value('eu_cookie', 0),
-				'note' => $this->T_('Disables cookie-based filters'),
+				'note' => $this->plug->T_('Disables cookie-based filters'),
 			),
 			'reverse_proxy' => array(
-				'label' => $this->T_('Reverse Proxy'),
+				'label' => $this->plug->T_('Reverse Proxy'),
 				'type' => 'checkbox',
 				'defaultvalue' => $this->get_default_value('reverse_proxy', 0),
-				'note' => $this->T_('This site is behind a reverse proxy'),
+				'note' => $this->plug->T_('This site is behind a reverse proxy'),
 			),
 			'reverse_proxy_header' => array(
-				'label' => $this->T_('Reverse proxy header'),
+				'label' => $this->plug->T_('Reverse proxy header'),
 				'type' => 'text',
 				'defaultvalue' => $this->get_default_value('reverse_proxy_header', 'X-Forwarded-For'),
 			),
 			'reverse_proxy_addresses' => array(
-				'label' => $this->T_('Reverse proxy addresses'),
+				'label' => $this->plug->T_('Reverse proxy addresses'),
 				'type' => 'textarea',
 				'defaultvalue' => implode("\n", (array) $this->get_default_value('reverse_proxy_addresses', array())),
-				'note' => $this->T_('List of IP addresses of your reverse proxy.  ') . $this->T_('One per line.'),
+				'note' => $this->plug->T_('List of IP addresses of your reverse proxy.  ') . $this->plug->T_('One per line.'),
 			),
 
 			/* Whitelist options */
 			'whitelist_ips' => array(
-				'label' => $this->T_('Whitelist IP addresses'),
+				'label' => $this->plug->T_('Whitelist IP addresses'),
 				'type' => 'textarea',
 				'defaultvalue' => implode("\n", (array) @$whitelist['ip']),
-				'note' => $this->T_('List of IP addresses that are never filtered.  ') . $this->T_('One per line.'),
+				'note' => $this->plug->T_('List of IP addresses that are never filtered.  ') . $this->plug->T_('One per line.'),
 			),
 			'whitelist_user_agents' => array(
-				'label' => $this->T_('Whitelist user agents'),
+				'label' => $this->plug->T_('Whitelist user agents'),
 				'type' => 'textarea',
 				'defaultvalue' => implode("\n", (array) @$whitelist['useragent']),
-				'note' => $this->T_('List of user agents that are never filtered.  ') . $this->T_('One per line.'),
+				'note' => $this->plug->T_('List of user agents that are never filtered.  ') . $this->plug->T_('One per line.'),
 			),
 			'whitelist_urls' => array(
-				'label' => $this->T_('Whitelist URLs'),
+				'label' => $this->plug->T_('Whitelist URLs'),
 				'type' => 'textarea',
 				'defaultvalue' => implode("\n", (array) @$whitelist['url']),
-				'note' => $this->T_('List of URLs that are never filtered.  ') . $this->T_('One per line.'),
+				'note' => $this->plug->T_('List of URLs that are never filtered.  ') . $this->plug->T_('One per line.'),
 			),
 		);
 	}
 
+	function AdminAfterMenuInit()
+	{
+		$this->register_menu_entry( $this->T_('Bad Behaviour') );
+	}
 
-	function SkinEndHtmlBody( $params )
+	function AdminTabPayload()
+	{
+		global $baseurl;
+		require_once(BB2_CORE . '/responses.inc.php');
+
+		$query = "SELECT * FROM " . $this->get_sql_table('bad_behavior') . " WHERE `key` NOT LIKE '00000000'";
+		$blocked_list = bb2_db_query( $query );
+		echo '<h2>'.$this->T_('Bad Behaviour') . $this->T_(' has blocked the following access attempts in the last 7 days').'</h2>';
+		$count = 0;
+		foreach( $blocked_list as $access_attempt ) 
+		{
+			echo '<table class="grouped" cellspacing="0">';
+			echo '<tbody>';
+			echo '<tr>'."\n";
+			echo '<th width="10%">'. $this->T_('IP') . '</th>';
+			echo '<td><a href="http://whois.domaintools.com/'. $access_attempt['ip'] .'" title="' . $this->T_('More information about this ip address') . '">'. $access_attempt['ip'] .'</a></td>'."\n";
+			echo '</tr>'."\n";
+
+			echo '<tr>'."\n";
+			echo '<th width="10%">'.$this->T_('Date').'</th>';
+			echo '<td>'. $access_attempt['date'] .'</td>'."\n";
+			echo '</tr>'."\n";
+
+			$url = parse_url($baseurl);
+			$url['path'] = $access_attempt['request_uri'];
+			$url = sprintf("%s://%s:%u%s", $url['scheme'], $url['host'], $url['port'], $url['path']);
+			echo '<tr>'."\n";
+			echo '<th width="10%">'.$this->T_('Request URI').'</th>';
+			echo '<td><a href="' . $url .'" title="' . $this->T_('View this uri on your blog') . '">'. $access_attempt['request_uri'] .'</a></td>'."\n";
+			echo '</tr>'."\n";
+
+			echo '<tr>'."\n";
+			echo '<th width="10%">'.$this->T_('HTTP Headers').'</th>';
+			echo '<td>'. nl2br($access_attempt['http_headers']) .'</td>'."\n";
+			echo '</tr>'."\n";
+
+			echo '<tr>'."\n";
+			echo '<th width="10%">'.$this->T_('User Agent').'</th>';
+			echo '<td>'. $access_attempt['user_agent'] .'</td>'."\n";
+			echo '</tr>'."\n";
+
+			$resp = bb2_get_response($access_attempt['key']);
+			echo '<th width="10%">'.$this->T_('Explanation').'</th>';
+			echo '<td>'. $resp['explanation'] . ' (' . $resp['log'] .'.)</td>'."\n";
+			echo '</tr>'."\n";
+
+			echo '<th width="10%">'.$this->T_('Code').'</th>';
+			echo '<td>'. $resp['response'] .'</td>'."\n";
+			echo '</tr>'."\n";
+
+			echo '</tbody></table>'."\n";
+
+			$count++;
+      }
+		echo '<p>' . $this->T_('A total of ') . $count . $this->T_(' access attempts blocked.') . '</p>';
+		echo '<p>' .$this->T_('More about ') . '<a href="http://www.bad-behavior.ioerror.us/">' .$this->T_('Bad Behaviour') . '</a></p>';
+	}
+
+
+	function SkinEndHtmlBody( & $params )
 	{
 		global $bb2_result;
 		$settings = bb2_read_settings();
@@ -216,7 +309,7 @@ class bad_behaviour_plugin extends Plugin
 	/**
 	 * Define user settings that the plugin uses/provides.
 	 */
-	function GetDefaultUserSettings()
+	function GetDefaultUserSettings( & $params )
 	{
 		return array(
 
@@ -261,7 +354,7 @@ function bb2_db_query($query) {
 	$result = $DB->get_results($query, ARRAY_A);
 	if (isset($debug) && $debug !== 0)
 		$DB->show_errors = TRUE;
-	if (mysql_error()) {
+	if ($DB->error) {
 		return FALSE;
 	}
 	return $result;
@@ -353,7 +446,7 @@ function bb2_write_settings($settings) {
 }
 
 // See bad_behavior_plugin::GetDbLayout()
-function bb2_install($origin) {
+function bb2_install() {
 	return false;
 }
 
