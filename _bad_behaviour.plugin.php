@@ -43,6 +43,8 @@ class bad_behaviour_plugin extends Plugin
 	/* Workaround to get Plugin::T_() to work with the plugin admin page */
 	var $plug;
 
+	var $log_table;
+
 
 	/**
 	 * Init
@@ -60,12 +62,13 @@ class bad_behaviour_plugin extends Plugin
 			$this->plug = $this;
 		$this->name = $this->plug->T_('Bad Behaviour Plugin for b2evolution');
 		$this->short_desc = $this->plug->T_('The Web\'s premier link spam killer.');
+		$this->log_table = $this->get_sql_table('bad_behavior');
 	}
 
 
 	function GetDbLayout()
 	{
-		$tablename = $this->get_sql_table('bad_behavior');
+		$tablename = $this->log_table;
 
 		/* If the table doesn't exist, create it */
 		$res = bb2_db_query("SHOW TABLES LIKE '$tablename'");
@@ -236,7 +239,7 @@ class bad_behaviour_plugin extends Plugin
 		global $baseurl;
 		require_once(BB2_CORE . '/responses.inc.php');
 
-		$query = "SELECT * FROM " . $this->get_sql_table('bad_behavior') . " WHERE `key` NOT LIKE '00000000'";
+		$query = "SELECT * FROM " . $this->log_table . " WHERE `key` NOT LIKE '00000000'";
 		$blocked_list = bb2_db_query( $query );
 		echo '<h2>'.$this->T_('Bad Behaviour') . $this->T_(' has blocked the following access attempts in the last 7 days').'</h2>';
 		$count = 0;
@@ -294,11 +297,11 @@ class bad_behaviour_plugin extends Plugin
 	{
 		global $bb2_result;
 		$settings = bb2_read_settings();
-		$dbname = $settings['log_table'];
 
 		if ($settings['display_stats'])
 		{
-			$query = "SELECT COUNT(*) FROM $dbname WHERE `key` NOT LIKE '00000000'";
+			$tablename = $this->log_table;
+			$query = "SELECT COUNT(*) FROM `$tablename` WHERE `key` NOT LIKE '00000000'";
 			$blocked = bb2_db_query( $query );
 
 			if ($blocked !== FALSE)
@@ -383,6 +386,10 @@ function bb2_email() {
 
 // retrieve whitelist
 function bb2_read_whitelist() {
+	global $bb2_whitelist;
+	if (isset($bb2_whitelist))
+		return $bb2_whitelist;
+
 	$settings = bb2_read_settings();
 	$whitelist = (array) @parse_ini_file(BB2_CWD . '/whitelist.ini');
 
@@ -394,16 +401,20 @@ function bb2_read_whitelist() {
 	if (($set = $settings['whitelist_urls']) !== NULL)
 		$ret['url'] = explode("\n", $set);
 
-	$ret = @array_merge($whitelist, $ret);
-	return $ret;
+	$bb2_whitelist = @array_merge($whitelist, $ret);
+	return $bb2_whitelist;
 }
 
 // retrieve settings from database
 function bb2_read_settings() {
 	global $Plugins;
+	global $bb2_settings;
+	if (isset($bb2_settings))
+		return $bb2_settings;
+
 	$plug = $Plugins->get_by_code( 'b2_bad_behaviour' );
 	$ret = array();
-	$ret['log_table'] = $plug->get_sql_table('bad_behavior');
+	$ret['log_table'] = $plug->log_table;
 
 	/* We only want to fill the element of the array ret
 	 * if the setting has been set.
@@ -443,8 +454,8 @@ function bb2_read_settings() {
 	$settings = @parse_ini_file(BB2_CWD . "/settings.ini");
 	if (!$settings) $settings = array();
 
-	$ret = @array_merge($settings, $ret);
-	return $ret;
+	$bb2_settings = @array_merge($settings, $ret);
+	return $bb2_settings;
 }
 
 // See bad_behaviour_plugin::GetDefaultSettings()
