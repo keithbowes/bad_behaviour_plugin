@@ -75,16 +75,23 @@ class bad_behaviour_plugin extends Plugin
 		}
 		else
 		{
-			/* If the table does exist, change the old field names 'kkey' and 'request_key' to the new one 'key' */
+			/* If the table does exist, do some conversions from old versions */
 			$res = bb2_db_query("SHOW COLUMNS FROM `$tablename`");
 			$num_rows = bb2_db_num_rows($res);
 			for ($i = 1; $num_rows > 1 && $i < $num_rows; $i++)
 			{
 				$field_name = $res[$i]['Field'];
-				if ('kkey' == $field_name || 'request_key' == $field_name)
+				switch ($field_name)
 				{
-					bb2_db_query("ALTER TABLE `$tablename` CHANGE `$field_name` `key` TEXT NOT NULL");
-					break;
+					/* Change the default date to what it's supposed to be */
+					case 'date':
+						bb2_db_query("ALTER TABLE `$tablename` MODIFY `$field_name` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'"); 
+						break;
+					/*change the old field names 'kkey' and 'request_key' to the new one 'key' */
+					case 'kkey':
+					case 'request_key':
+						bb2_db_query("ALTER TABLE `$tablename` CHANGE `$field_name` `key` TEXT NOT NULL");
+						break;
 				}
 			}
 		}
