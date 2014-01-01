@@ -40,11 +40,9 @@ class bad_behaviour_plugin extends Plugin
 	var $apply_rendering = 'opt-in';
 	var $number_of_installs = 1;
 
+	var $log_table;
 	/* Workaround to get Plugin::T_() to work with the plugin admin page */
 	var $plug;
-
-	var $log_table;
-
 
 	/**
 	 * Init
@@ -64,7 +62,6 @@ class bad_behaviour_plugin extends Plugin
 		$this->short_desc = $this->plug->T_('The Web\'s premier link spam killer.');
 		$this->log_table = $this->get_sql_table('bad_behavior');
 	}
-
 
 	function GetDbLayout()
 	{
@@ -292,7 +289,6 @@ class bad_behaviour_plugin extends Plugin
 		echo '<p>' .$this->T_('More about ') . '<a href="http://www.bad-behavior.ioerror.us/">' .$this->T_('Bad Behaviour') . '</a></p>';
 	}
 
-
 	function SkinEndHtmlBody( & $params )
 	{
 		global $bb2_result;
@@ -300,8 +296,7 @@ class bad_behaviour_plugin extends Plugin
 
 		if ($settings['display_stats'])
 		{
-			$tablename = $this->log_table;
-			$query = "SELECT COUNT(*) FROM `$tablename` WHERE `key` NOT LIKE '00000000'";
+			$query = 'SELECT COUNT(*) FROM `' . $this->log_table . '` WHERE `key` NOT LIKE \'00000000\'';
 			$blocked = bb2_db_query( $query );
 
 			if ($blocked !== FALSE)
@@ -314,19 +309,6 @@ class bad_behaviour_plugin extends Plugin
 		unset($bb2_result);
 		}
 	}
-
-
-	/**
-	 * Define user settings that the plugin uses/provides.
-	 */
-	function GetDefaultUserSettings( & $params )
-	{
-		return array(
-
-			);
-	}
-
-
 }
 
 function bb2_db_date() {
@@ -394,12 +376,9 @@ function bb2_read_whitelist() {
 	$whitelist = (array) @parse_ini_file(BB2_CWD . '/whitelist.ini');
 
 	$ret = array();
-	if (($set = $settings['whitelist_ips']) !== NULL)
-		$ret['ip'] = explode("\n", $set);
-	if (($set = $settings['whitelist_user_agents']) !== NULL)
-		$ret['useragent'] = explode("\n", $set);
-	if (($set = $settings['whitelist_urls']) !== NULL)
-		$ret['url'] = explode("\n", $set);
+	$ret['ip'] = explode("\n", $settings['whitelist_ips']);
+	$ret['useragent'] = explode("\n", $settings['whitelist_user_agents']);
+	$ret['url'] = explode("\n", $settings['whitelist_urls']);
 
 	$bb2_whitelist = @array_merge($whitelist, $ret);
 	return $bb2_whitelist;
@@ -407,54 +386,35 @@ function bb2_read_whitelist() {
 
 // retrieve settings from database
 function bb2_read_settings() {
-	global $Plugins;
 	global $bb2_settings;
 	if (isset($bb2_settings))
 		return $bb2_settings;
 
+	global $Plugins;
 	$plug = $Plugins->get_by_code( 'b2_bad_behaviour' );
 	$ret = array();
 	$ret['log_table'] = $plug->log_table;
 
-	/* We only want to fill the element of the array ret
-	 * if the setting has been set.
-	 * Otherwise, we'll read from settings.ini, if it exists.
-	 * See the array_merge() below. */
-	if (($set = $plug->Settings->get('display_stats')) !== NULL)
-		$ret['display_stats'] = $set;
-	if (($set = $plug->Settings->get('strict')) !== NULL)
-		$ret['strict'] = $set;
-	if (($set = $plug->Settings->get('verbose')) !== NULL)
-		$ret['verbose'] = $set;
-	if (($set = $plug->Settings->get('logging')) !== NULL)
-		$ret['logging'] = $set;
-	if (($set = $plug->Settings->get('httpbl_key')) !== NULL)
-		$ret['httpbl_key'] = $set;
-	if (($set = $plug->Settings->get('httpbl_threat')) !== NULL)
-		$ret['httpbl_threat'] = $set;
-	if (($set = $plug->Settings->get('httpbl_maxage')) !== NULL)
-		$ret['httpbl_maxage'] = $set;
-	if (($set = $plug->Settings->get('offsite_forms')) !== NULL)
-		$ret['offsite_forms'] = $set;
-	if (($set = $plug->Settings->get('eu_cookie')) !== NULL)
-		$ret['eu_cookie'] = $set;
-	if (($set = $plug->Settings->get('reverse_proxy')) !== NULL)
-		$ret['reverse_proxy'] = $set;
-	if (($setlm = $plug->Settings->get('reverse_proxy_header')) !== NULL)
-		$ret['reverse_proxy_header'] = $set;
-	if (($set = $plug->Settings->get('reverse_proxy_addresses')) !== NULL)
-		$ret['reverse_proxy_addresses'] = explode("\n", $set);
-
+	$ret['display_stats'] = $plug->Settings->get('display_stats');
+	$ret['strict'] = $plug->Settings->get('strict');
+	$ret['verbose'] = $plug->Settings->get('verbose');
+	$ret['logging'] = $plug->Settings->get('logging');
+	$ret['httpbl_key'] = $plug->Settings->get('httpbl_key');
+	$ret['httpbl_threat'] = $plug->Settings->get('httpbl_threat');
+	$ret['httpbl_maxage'] = $plug->Settings->get('httpbl_maxage');
+	$ret['offsite_forms'] = $plug->Settings->get('offsite_forms');
+	$ret['eu_cookie'] = $plug->Settings->get('eu_cookie');
+	$ret['reverse_proxy'] = $plug->Settings->get('reverse_proxy');
+	$ret['reverse_proxy_header'] = $plug->Settings->get('reverse_proxy_header');
+	$ret['reverse_proxy_addresses'] = explode("\n", $plug->Settings->get('reverse_proxy_addresses'));
 
 	/* Whitelist settings */
 	$ret['whitelist_ips'] = $plug->Settings->get('whitelist_ips');
 	$ret['whitelist_user_agents'] = $plug->Settings->get('whitelist_user_agents');
 	$ret['whitelist_urls'] = $plug->Settings->get('whitelist_urls');
 
-	$settings = @parse_ini_file(BB2_CWD . "/settings.ini");
-	if (!$settings) $settings = array();
-
-	$bb2_settings = @array_merge($settings, $ret);
+	$settings = (array) @parse_ini_file(BB2_CWD . "/settings.ini");
+	$bb2_settings = array_merge($settings, $ret);
 	return $bb2_settings;
 }
 
