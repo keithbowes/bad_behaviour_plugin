@@ -51,7 +51,7 @@ class bad_behaviour_plugin extends Plugin
 	 */
 	function PluginInit( & $params )
 	{
-		if ('enabled' == $params['db_row']['plug_status'])
+		if ('enabled' == @$params['db_row']['plug_status'])
 		{
 			global $Plugins;
 			$this->plug = $Plugins->get_by_code( 'b2_bad_behaviour' );
@@ -301,11 +301,11 @@ class bad_behaviour_plugin extends Plugin
 
 			if ($blocked !== FALSE)
 			{
-				echo sprintf('<div><a href="http://www.bad-behavior.ioerror.us/"><cite>%1$s</cite></a> %2$s <strong>%3$s</strong> %4$s</div>', $this->T_('Bad Behaviour'), $this->T_('has blocked'), $blocked[0]["COUNT(*)"], $this->T_('access attempts in the last 7 days.'));
+				printf('<div><a href="http://www.bad-behavior.ioerror.us/"><cite>%1$s</cite></a> %2$s <strong>%3$s</strong> %4$s</div>' . "\n", $this->T_('Bad Behaviour'), $this->T_('has blocked'), $blocked[0]["COUNT(*)"], $this->T_('access attempts in the last 7 days.'));
 			}
 		}
 		if (@!empty($bb2_result)) {
-		echo sprintf($this->T_("\n<!-- %s result was %s! This request would have been blocked. -->\n"), $this->T_('Bad Behaviour'), $bb2_result);
+		printf($this->T_("\n<!-- %s result was %s! This request would have been blocked. -->\n"), $this->T_('Bad Behaviour'), $bb2_result);
 		unset($bb2_result);
 		}
 	}
