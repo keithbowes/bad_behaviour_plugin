@@ -101,7 +101,13 @@ class bad_behaviour_plugin extends Plugin
 	{
 		global $bb2_timer_total;
 		global $bb2_javascript;
-		add_headline("\n<!-- " . $this->T_('Bad Behaviour') . ' ' . BB2_VERSION . ', ' . $this->T_('run time: ') . number_format(1000 * $bb2_timer_total, 3) . ' ' . $this->T_('milliseconds') . " -->\n");
+
+		if (class_exists('NumberFormatter'))
+			$ms = numfmt_format(numfmt_create(locale_lang(false), NumberFormatter::PATTERN_DECIMAL, '#,##0.000'), 1000 * $bb2_timer_total);
+		else
+			$ms = number_format(1000 * $bb2_timer_total, 3);
+
+		add_headline("\n<!-- " . $this->T_('Bad Behaviour') . ' ' . BB2_VERSION . ', ' . $this->T_('run time: ') . $ms . ' ' . $this->T_('milliseconds') . " -->\n");
 		add_headline($bb2_javascript);
 	}
 
