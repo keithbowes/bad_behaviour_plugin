@@ -1,0 +1,216 @@
+# Spanish translations for b package
+# Traducciones al español para el paquete b.
+# Copyright (C) 2014 Francois PLANQUE
+# This file is distributed under the same license as the b package.
+# Keith <keith@localhost>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: b 2e\n"
+"Report-Msgid-Bugs-To: http://fplanque.net/\n"
+"POT-Creation-Date: 2014-06-13 22:12-0400\n"
+"PO-Revision-Date: 2014-06-14 03:39-0400\n"
+"Last-Translator: Keith <keith@localhost>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../../../_bad_behaviour.plugin.php:61
+msgid "Bad Behaviour Plugin for b2evolution"
+msgstr "Complemento de Bad Behaviour para b2evolution"
+
+#: ../../../_bad_behaviour.plugin.php:62
+msgid "The Web's premier link spam killer."
+msgstr "El mejor matador de spam de enlaces en el web"
+
+#: ../../../_bad_behaviour.plugin.php:104
+#: ../../../_bad_behaviour.plugin.php:231
+#: ../../../_bad_behaviour.plugin.php:241
+#: ../../../_bad_behaviour.plugin.php:289
+#: ../../../_bad_behaviour.plugin.php:304
+#: ../../../_bad_behaviour.plugin.php:308
+msgid "Bad Behaviour"
+msgstr "Bad Behaviour"
+
+#: ../../../_bad_behaviour.plugin.php:104
+msgid "milliseconds"
+msgstr "milisegundos"
+
+#: ../../../_bad_behaviour.plugin.php:104
+msgid "run time: "
+msgstr "tiempo de ejecución: "
+
+#: ../../../_bad_behaviour.plugin.php:139
+msgid "Display Stats"
+msgstr "Mostrar estadísticas"
+
+#: ../../../_bad_behaviour.plugin.php:144
+msgid "Strict"
+msgstr "Estricto"
+
+#: ../../../_bad_behaviour.plugin.php:147
+msgid "Strict checking (blocks more spam but may block some people)"
+msgstr "Comprobando estricto (bloquea más de spam pero quizá algunas personas también)"
+
+#: ../../../_bad_behaviour.plugin.php:150
+msgid "Logging"
+msgstr "Registrando"
+
+#: ../../../_bad_behaviour.plugin.php:153
+msgid "HTTP request logging (recommended)"
+msgstr "Registrando de peticiones HTTP (recomendado)"
+
+#: ../../../_bad_behaviour.plugin.php:156
+msgid "Verbose Logging"
+msgstr "Registrando verboso"
+
+#: ../../../_bad_behaviour.plugin.php:159
+msgid "Log all requests"
+msgstr "Registrar todos los peticiones"
+
+#: ../../../_bad_behaviour.plugin.php:162
+msgid "http:BL Access Key"
+msgstr "Llave de acceso de http:BL"
+
+#: ../../../_bad_behaviour.plugin.php:168
+msgid "Minimum Threat Level (25 is recommended)"
+msgstr "Nivel minimal de amenaza (25 es recomendado)"
+
+#: ../../../_bad_behaviour.plugin.php:173
+msgid "Maximum Age of Data (30 is recommended)"
+msgstr "Edad maximal de la data (30 es recomendado)"
+
+#: ../../../_bad_behaviour.plugin.php:178
+msgid "Offsite forms"
+msgstr "Formularios fuera del sitio"
+
+#: ../../../_bad_behaviour.plugin.php:181
+msgid "Allow forms submitted from other websites"
+msgstr "Permitir formularios que estuvieron mandados de otros sitios web"
+
+#: ../../../_bad_behaviour.plugin.php:184
+msgid "Strict EU cookies"
+msgstr "Cookies estrictas de la UE"
+
+#: ../../../_bad_behaviour.plugin.php:187
+msgid "Disables cookie-based filters"
+msgstr "Desactiva filtros basados en cookies"
+
+#: ../../../_bad_behaviour.plugin.php:190
+msgid "Reverse Proxy"
+msgstr "Proxy reverso"
+
+#: ../../../_bad_behaviour.plugin.php:193
+msgid "This site is behind a reverse proxy"
+msgstr "Eso sitio está detrás de un proxy reverso"
+
+#: ../../../_bad_behaviour.plugin.php:196
+msgid "Reverse proxy header"
+msgstr "Encabezado del proxy reverso"
+
+#: ../../../_bad_behaviour.plugin.php:201
+msgid "Reverse proxy addresses"
+msgstr "Direcciones del proxy reverso"
+
+#: ../../../_bad_behaviour.plugin.php:204
+msgid "List of IP addresses of your reverse proxy.  "
+msgstr "Lista de las direcciones IP de su proxy reverso.  "
+
+#: ../../../_bad_behaviour.plugin.php:204
+#: ../../../_bad_behaviour.plugin.php:212
+#: ../../../_bad_behaviour.plugin.php:218
+#: ../../../_bad_behaviour.plugin.php:224
+msgid "One per line."
+msgstr "Uno por línea."
+
+#: ../../../_bad_behaviour.plugin.php:209
+msgid "Whitelist IP addresses"
+msgstr "Lista blanca de direcciones IP"
+
+#: ../../../_bad_behaviour.plugin.php:212
+msgid "List of IP addresses that are never filtered.  "
+msgstr "Lista de direcciones IP que no son nunca filtrados.  "
+
+#: ../../../_bad_behaviour.plugin.php:215
+msgid "Whitelist user agents"
+msgstr "Lista blanca de agentes de usuario"
+
+#: ../../../_bad_behaviour.plugin.php:218
+msgid "List of user agents that are never filtered.  "
+msgstr "Lista de agentes de usuarios que no son nuca filtrados.  "
+
+#: ../../../_bad_behaviour.plugin.php:221
+msgid "Whitelist URLs"
+msgstr "Lista blanca de URLs"
+
+#: ../../../_bad_behaviour.plugin.php:224
+msgid "List of URLs that are never filtered.  "
+msgstr "Lista de URLS que no son nuca filtrados.  "
+
+#: ../../../_bad_behaviour.plugin.php:241
+msgid " has blocked the following access attempts in the last 7 days"
+msgstr " ha bloqueado los siguientes intentos de acceso en los últimos 7 días"
+
+#: ../../../_bad_behaviour.plugin.php:248
+msgid "IP"
+msgstr "IP"
+
+#: ../../../_bad_behaviour.plugin.php:249
+msgid "More information about this ip address"
+msgstr "Más de información sobre esta dirección IP"
+
+#: ../../../_bad_behaviour.plugin.php:253
+msgid "Date"
+msgstr "Fecha"
+
+#: ../../../_bad_behaviour.plugin.php:261
+msgid "Request URI"
+msgstr "URI pedido"
+
+#: ../../../_bad_behaviour.plugin.php:262
+msgid "View this uri on your blog"
+msgstr "Ver esto URI en su blog"
+
+#: ../../../_bad_behaviour.plugin.php:266
+msgid "HTTP Headers"
+msgstr "Encabezados HTTP"
+
+#: ../../../_bad_behaviour.plugin.php:271
+msgid "User Agent"
+msgstr "Agente de usuario"
+
+#: ../../../_bad_behaviour.plugin.php:276
+msgid "Explanation"
+msgstr "Explicación"
+
+#: ../../../_bad_behaviour.plugin.php:280
+msgid "Code"
+msgstr "Código"
+
+#: ../../../_bad_behaviour.plugin.php:288
+msgid " access attempts blocked."
+msgstr " intentos de acceso bloqueados."
+
+#: ../../../_bad_behaviour.plugin.php:288
+msgid "A total of "
+msgstr "Un total de "
+
+#: ../../../_bad_behaviour.plugin.php:289
+msgid "More about "
+msgstr "Más sobre "
+
+#: ../../../_bad_behaviour.plugin.php:304
+msgid "has blocked {accessattempts} access attempts in the last 7 days."
+msgstr "ha bloqueado {accessattempts} intentos de acceso en los últimos 7 días."
+
+#: ../../../_bad_behaviour.plugin.php:308
+#, php-format
+msgid ""
+"\n"
+"<!-- %s result was %s! This request would have been blocked. -->\n"
+msgstr ""
+"\n"
+"<!-- El resultado de %s fue %s! Esta petición habría bloqueado. -->\n"
