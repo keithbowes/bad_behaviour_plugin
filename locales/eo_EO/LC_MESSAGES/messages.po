@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bad_behaviour_plugin 0.2\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
-"POT-Creation-Date: 2013-12-22 22:24-0500\n"
-"PO-Revision-Date: 2013-12-22 22:42-0500\n"
-"Language-Team: eo\n"
+"POT-Creation-Date: 2014-06-15 05:01-0400\n"
+"PO-Revision-Date: 2014-06-15 05:02-0400\n"
 "Last-Translator: Me, of course\n"
-"Language: \n"
+"Language-Team: eo\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,195 +22,183 @@ msgstr "La kromprogramo Bad Behaviour (Riproĉinda Konduto) por b2evolution"
 msgid "The Web's premier link spam killer."
 msgstr "La unuaranga haltigilo de la ligilaj spamaĵoj en la TTT."
 
-#: ../../../_bad_behaviour.plugin.php:99
-#: ../../../_bad_behaviour.plugin.php:226
-#: ../../../_bad_behaviour.plugin.php:236
-#: ../../../_bad_behaviour.plugin.php:281
-#: ../../../_bad_behaviour.plugin.php:298
-#: ../../../_bad_behaviour.plugin.php:302
-msgid "Bad Behaviour"
-msgstr "Bad Behaviour (Riproĉinda Konduto)"
-
-#: ../../../_bad_behaviour.plugin.php:99
-msgid "milliseconds"
-msgstr "milisekundoj"
-
-#: ../../../_bad_behaviour.plugin.php:99
-msgid "run time: "
-msgstr "plenumtempo: "
-
-#: ../../../_bad_behaviour.plugin.php:134
-msgid "Display Stats"
-msgstr "Montri statistikaĵojn"
-
-#: ../../../_bad_behaviour.plugin.php:139
-msgid "Strict"
-msgstr "Severa"
-
-#: ../../../_bad_behaviour.plugin.php:142
-msgid "Strict checking (blocks more spam but may block some people)"
-msgstr "Severa kontrolado (baros pli da spamaĵoj, sed eble baros homojn)"
-
-#: ../../../_bad_behaviour.plugin.php:145
-msgid "Logging"
-msgstr "Protokolado"
-
-#: ../../../_bad_behaviour.plugin.php:148
-msgid "HTTP request logging (recommended)"
-msgstr "Protokolado de HTTP-petoj (rekomendinda)"
-
-#: ../../../_bad_behaviour.plugin.php:151
-msgid "Verbose Logging"
-msgstr "Plia protokolado"
-
-#: ../../../_bad_behaviour.plugin.php:154
-msgid "Log all requests"
-msgstr "Protokoli ĉiujn petojn"
-
-#: ../../../_bad_behaviour.plugin.php:157
-msgid "http:BL Access Key"
-msgstr "Atinga ŝlosilo por http:BL"
-
-#: ../../../_bad_behaviour.plugin.php:163
-msgid "Minimum Threat Level (25 is recommended)"
-msgstr "Minimuma minaca nivelo (25 estas rekomendinda)"
-
-#: ../../../_bad_behaviour.plugin.php:168
-msgid "Maximum Age of Data (30 is recommended)"
-msgstr "Maksimuma aĝo de datumoj (30 estas rekomendinda)"
-
-#: ../../../_bad_behaviour.plugin.php:173
-msgid "Offsite forms"
-msgstr "Formularioj de aliaj TTT-ejoj"
-
-#: ../../../_bad_behaviour.plugin.php:176
-msgid "Allow forms submitted from other websites"
-msgstr "Permesi formulariojn senditajn de aliaj TTT-ejoj"
-
-#: ../../../_bad_behaviour.plugin.php:179
-msgid "Strict EU cookies"
-msgstr "Severaj EU-kuketoj"
-
-#: ../../../_bad_behaviour.plugin.php:182
-msgid "Disables cookie-based filters"
-msgstr "Malaktivigas filtrilojn bazitaj sur kuketoj"
-
-#: ../../../_bad_behaviour.plugin.php:185
-msgid "Reverse Proxy"
-msgstr "Inversa prokurilo"
-
-#: ../../../_bad_behaviour.plugin.php:188
-msgid "This site is behind a reverse proxy"
-msgstr "La TTT-ejo estas malantaŭ inversa prokurilo"
-
-#: ../../../_bad_behaviour.plugin.php:191
-msgid "Reverse proxy header"
-msgstr "Ĉapo por la inversa prokurilo"
-
-#: ../../../_bad_behaviour.plugin.php:196
-msgid "Reverse proxy addresses"
-msgstr "Adresoj de la inversa prokurilo"
-
-#: ../../../_bad_behaviour.plugin.php:199
-msgid "List of IP addresses of your reverse proxy.  "
-msgstr "Listo de IP-adresoj de via inversa prokurilo. "
-
-#: ../../../_bad_behaviour.plugin.php:199
-#: ../../../_bad_behaviour.plugin.php:207
-#: ../../../_bad_behaviour.plugin.php:213
-#: ../../../_bad_behaviour.plugin.php:219
-msgid "One per line."
-msgstr "Unu en ĉiu linio."
-
-#: ../../../_bad_behaviour.plugin.php:204
-msgid "Whitelist IP addresses"
-msgstr "IP-adresoj en la blankolisto"
-
-#: ../../../_bad_behaviour.plugin.php:207
-msgid "List of IP addresses that are never filtered.  "
-msgstr "Listo de IP-adresoj, kiuj ne filtriĝos. "
-
-#: ../../../_bad_behaviour.plugin.php:210
-msgid "Whitelist user agents"
-msgstr "TTT-legiloj en la blankolisto"
-
-#: ../../../_bad_behaviour.plugin.php:213
-msgid "List of user agents that are never filtered.  "
-msgstr "Listo de TTT-legiloj, kiuj ne filtriĝos. "
-
-#: ../../../_bad_behaviour.plugin.php:216
-msgid "Whitelist URLs"
-msgstr "Retadresoj en la blankolisto"
-
-#: ../../../_bad_behaviour.plugin.php:219
-msgid "List of URLs that are never filtered.  "
-msgstr "Listo de retadresoj, kiuj ne filtriĝos. "
-
-#: ../../../_bad_behaviour.plugin.php:236
-msgid " has blocked the following access attempts in the last 7 days"
-msgstr " baris atingo-provojn dum la pasintaj 7 tagoj."
-
-#: ../../../_bad_behaviour.plugin.php:243
-msgid "IP"
-msgstr "IP-adreso"
-
-#: ../../../_bad_behaviour.plugin.php:244
-msgid "More information about this ip address"
-msgstr "Pliaj informoj pri tiu IP-adreso"
-
-#: ../../../_bad_behaviour.plugin.php:248
-msgid "Date"
-msgstr "Dato"
-
-#: ../../../_bad_behaviour.plugin.php:253
-msgid "Request URI"
-msgstr "Petita retadreso"
-
-#: ../../../_bad_behaviour.plugin.php:254
-msgid "View this uri on your blog"
-msgstr "Vidi tiun retadreson en via blogo"
-
-#: ../../../_bad_behaviour.plugin.php:258
-msgid "HTTP Headers"
-msgstr "HTTP-ĉapoj"
-
-#: ../../../_bad_behaviour.plugin.php:263
-msgid "User Agent"
-msgstr "TTT-legilo"
-
-#: ../../../_bad_behaviour.plugin.php:268
-msgid "Explanation"
-msgstr "Klarigo"
-
-#: ../../../_bad_behaviour.plugin.php:272
-msgid "Code"
-msgstr "Kodo"
-
-#: ../../../_bad_behaviour.plugin.php:280
-msgid " access attempts blocked."
-msgstr " atingo-provoj baritaj."
-
-#: ../../../_bad_behaviour.plugin.php:280
-msgid "A total of "
-msgstr "Sume de "
-
-#: ../../../_bad_behaviour.plugin.php:281
-msgid "More about "
-msgstr "Pli pri "
-
-#: ../../../_bad_behaviour.plugin.php:298
-msgid "access attempts in the last 7 days."
-msgstr "atingo-provojn dum la pasintaj 7 tagoj."
-
-#: ../../../_bad_behaviour.plugin.php:298
-msgid "has blocked"
-msgstr "estas barinta"
-
-#: ../../../_bad_behaviour.plugin.php:302
+#: ../../../_bad_behaviour.plugin.php:110
 #, php-format
 msgid ""
 "\n"
-"<!-- %s result was %s! This request would have been blocked. -->\n"
+"<!-- %1$s %2$s, run time: %3$s milliseconds -->\n"
 msgstr ""
 "\n"
-"<!-- La rezulto el %s estis %s! Tiu peto estus estinta barita. -->\n"
+"<!-- %1$s %2$s, plenumtempo: %3$s milisekundoj -->\n"
+
+#: ../../../_bad_behaviour.plugin.php:110
+#: ../../../_bad_behaviour.plugin.php:237
+#: ../../../_bad_behaviour.plugin.php:247
+#: ../../../_bad_behaviour.plugin.php:295
+#: ../../../_bad_behaviour.plugin.php:310
+#: ../../../_bad_behaviour.plugin.php:314
+msgid "Bad Behaviour"
+msgstr "Bad Behaviour (Riproĉinda Konduto)"
+
+#: ../../../_bad_behaviour.plugin.php:145
+msgid "Display Stats"
+msgstr "Montri statistikaĵojn"
+
+#: ../../../_bad_behaviour.plugin.php:150
+msgid "Strict"
+msgstr "Severa"
+
+#: ../../../_bad_behaviour.plugin.php:153
+msgid "Strict checking (blocks more spam but may block some people)"
+msgstr "Severa kontrolado (baros pli da spamaĵoj, sed eble baros homojn)"
+
+#: ../../../_bad_behaviour.plugin.php:156
+msgid "Logging"
+msgstr "Protokolado"
+
+#: ../../../_bad_behaviour.plugin.php:159
+msgid "HTTP request logging (recommended)"
+msgstr "Protokolado de HTTP-petoj (rekomendinda)"
+
+#: ../../../_bad_behaviour.plugin.php:162
+msgid "Verbose Logging"
+msgstr "Plia protokolado"
+
+#: ../../../_bad_behaviour.plugin.php:165
+msgid "Log all requests"
+msgstr "Protokoli ĉiujn petojn"
+
+#: ../../../_bad_behaviour.plugin.php:168
+msgid "http:BL Access Key"
+msgstr "Atinga ŝlosilo por http:BL"
+
+#: ../../../_bad_behaviour.plugin.php:174
+msgid "Minimum Threat Level (25 is recommended)"
+msgstr "Minimuma minaca nivelo (25 estas rekomendinda)"
+
+#: ../../../_bad_behaviour.plugin.php:179
+msgid "Maximum Age of Data (30 is recommended)"
+msgstr "Maksimuma aĝo de datumoj (30 estas rekomendinda)"
+
+#: ../../../_bad_behaviour.plugin.php:184
+msgid "Offsite forms"
+msgstr "Formularioj de aliaj TTT-ejoj"
+
+#: ../../../_bad_behaviour.plugin.php:187
+msgid "Allow forms submitted from other websites"
+msgstr "Permesi formulariojn senditajn de aliaj TTT-ejoj"
+
+#: ../../../_bad_behaviour.plugin.php:190
+msgid "Strict EU cookies"
+msgstr "Severaj EU-kuketoj"
+
+#: ../../../_bad_behaviour.plugin.php:193
+msgid "Disables cookie-based filters"
+msgstr "Malaktivigas filtrilojn bazitaj sur kuketoj"
+
+#: ../../../_bad_behaviour.plugin.php:196
+msgid "Reverse Proxy"
+msgstr "Inversa prokurilo"
+
+#: ../../../_bad_behaviour.plugin.php:199
+msgid "This site is behind a reverse proxy"
+msgstr "La TTT-ejo estas malantaŭ inversa prokurilo"
+
+#: ../../../_bad_behaviour.plugin.php:202
+msgid "Reverse proxy header"
+msgstr "Ĉapo por la inversa prokurilo"
+
+#: ../../../_bad_behaviour.plugin.php:207
+msgid "Reverse proxy addresses"
+msgstr "Adresoj de la inversa prokurilo"
+
+#: ../../../_bad_behaviour.plugin.php:210
+msgid "List of IP addresses of your reverse proxy.  "
+msgstr "Listo de IP-adresoj de via inversa prokurilo. "
+
+#: ../../../_bad_behaviour.plugin.php:210
+#: ../../../_bad_behaviour.plugin.php:218
+#: ../../../_bad_behaviour.plugin.php:224
+#: ../../../_bad_behaviour.plugin.php:230
+msgid "One per line."
+msgstr "Unu en ĉiu linio."
+
+#: ../../../_bad_behaviour.plugin.php:215
+msgid "Whitelist IP addresses"
+msgstr "IP-adresoj en la blankolisto"
+
+#: ../../../_bad_behaviour.plugin.php:218
+msgid "List of IP addresses that are never filtered.  "
+msgstr "Listo de IP-adresoj, kiuj ne filtriĝos. "
+
+#: ../../../_bad_behaviour.plugin.php:221
+msgid "Whitelist user agents"
+msgstr "TTT-legiloj en la blankolisto"
+
+#: ../../../_bad_behaviour.plugin.php:224
+msgid "List of user agents that are never filtered.  "
+msgstr "Listo de TTT-legiloj, kiuj ne filtriĝos. "
+
+#: ../../../_bad_behaviour.plugin.php:227
+msgid "Whitelist URLs"
+msgstr "Retadresoj en la blankolisto"
+
+#: ../../../_bad_behaviour.plugin.php:230
+msgid "List of URLs that are never filtered.  "
+msgstr "Listo de retadresoj, kiuj ne filtriĝos. "
+
+#: ../../../_bad_behaviour.plugin.php:247
+#, php-format
+msgid "<h2>%s has blocked the following access attempts in the last 7 days.</h2>"
+msgstr "<h2>%s baris la jenajn atingo-provojn dum la pasintaj 7 tagoj.</h2>"
+
+#: ../../../_bad_behaviour.plugin.php:254
+msgid "IP"
+msgstr "IP-adreso"
+
+#: ../../../_bad_behaviour.plugin.php:255
+msgid "More information about this ip address"
+msgstr "Pliaj informoj pri tiu IP-adreso"
+
+#: ../../../_bad_behaviour.plugin.php:259
+msgid "Date"
+msgstr "Dato"
+
+#: ../../../_bad_behaviour.plugin.php:267
+msgid "Request URI"
+msgstr "Petita retadreso"
+
+#: ../../../_bad_behaviour.plugin.php:268
+msgid "View this uri on your blog"
+msgstr "Vidi tiun retadreson en via blogo"
+
+#: ../../../_bad_behaviour.plugin.php:272
+msgid "HTTP Headers"
+msgstr "HTTP-ĉapoj"
+
+#: ../../../_bad_behaviour.plugin.php:277
+msgid "User Agent"
+msgstr "TTT-legilo"
+
+#: ../../../_bad_behaviour.plugin.php:282
+msgid "Explanation"
+msgstr "Klarigo"
+
+#: ../../../_bad_behaviour.plugin.php:286
+msgid "Code"
+msgstr "Kodo"
+
+#: ../../../_bad_behaviour.plugin.php:294
+#, php-format
+msgid "<p>A total of %d access attepts blocked.</p>"
+msgstr "<p>Sume de %d atingo-provoj baritaj.</p>"
+
+#: ../../../_bad_behaviour.plugin.php:295
+#, php-format
+msgid "<p>More about <a href=\"http://www.bad-behavior.ioerror.us/\">%s</a></p>"
+msgstr "<p>Pli pri <a href=\"http://www.bad-behavior.ioerror.us/\">%s</a></p>"
+
+#: ../../../_bad_behaviour.plugin.php:310
+#, php-format
+msgid "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1$s</cite></a> has blocked %2$d access attempts in the last 7 days.</div>\n"
+msgstr "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1$s</cite></a> baris %2$d atingo-provojn dum la pasintaj 7 tagoj.</div>\n"

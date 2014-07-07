@@ -7,12 +7,11 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['es_ES'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-06-13 22:12-0400\nPO-Revision-Date: 2014-06-14 03:39-0400\nLast-Translator: Keith <keith@localhost>\nLanguage-Team: Spanish\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-06-15 05:01-0400\nPO-Revision-Date: 2014-06-15 05:09-0400\nLast-Translator: Keith <keith@localhost>\nLanguage-Team: Spanish\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Bad Behaviour Plugin for b2evolution' => 'Complemento de Bad Behaviour para b2evolution',
 'The Web\'s premier link spam killer.' => 'El mejor matador de spam de enlaces en el web',
+"\n<!-- %1\$s %2\$s, run time: %3\$s milliseconds -->\n" => "\n<!-- %1\$s %2\$s, tiempo de ejecución: %3\$s milisegundos -->\n",
 'Bad Behaviour' => 'Bad Behaviour',
-'milliseconds' => 'milisegundos',
-'run time: ' => 'tiempo de ejecución: ',
 'Display Stats' => 'Mostrar estadísticas',
 'Strict' => 'Estricto',
 'Strict checking (blocks more spam but may block some people)' => 'Comprobando estricto (bloquea más de spam pero quizá algunas personas también)',
@@ -39,7 +38,7 @@ $trans['es_ES'] = array(
 'List of user agents that are never filtered.  ' => 'Lista de agentes de usuarios que no son nuca filtrados.  ',
 'Whitelist URLs' => 'Lista blanca de URLs',
 'List of URLs that are never filtered.  ' => 'Lista de URLS que no son nuca filtrados.  ',
-' has blocked the following access attempts in the last 7 days' => ' ha bloqueado los siguientes intentos de acceso en los últimos 7 días',
+'<h2>%s has blocked the following access attempts in the last 7 days.</h2>' => '<h2>%s ha bloqueado los siguientes intentos de acceso en los últimos 7 días.</h2>',
 'IP' => 'IP',
 'More information about this ip address' => 'Más de información sobre esta dirección IP',
 'Date' => 'Fecha',
@@ -49,11 +48,9 @@ $trans['es_ES'] = array(
 'User Agent' => 'Agente de usuario',
 'Explanation' => 'Explicación',
 'Code' => 'Código',
-' access attempts blocked.' => ' intentos de acceso bloqueados.',
-'A total of ' => 'Un total de ',
-'More about ' => 'Más sobre ',
-'has blocked {accessattempts} access attempts in the last 7 days.' => 'ha bloqueado {accessattempts} intentos de acceso en los últimos 7 días.',
-"\n<!-- %s result was %s! This request would have been blocked. -->\n" => "\n<!-- El resultado de %s fue %s! Esta petición habría bloqueado. -->\n",
+'<p>A total of %d access attepts blocked.</p>' => '<p>Un total de %d intentos de acceso bloqueados.</p>',
+'<p>More about <a href="http://www.bad-behavior.ioerror.us/">%s</a></p>' => '<p>Más sobre <a href="http://www.bad-behavior.ioerror.us/">%s</a></p>',
+"<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1\$s</cite></a> has blocked %2\$d access attempts in the last 7 days.</div>\n" => "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1\$s</cite></a> ha bloqueado %2\$d intentos de acceso in los últimos 7 días.</div>\n",
 
 );
 ?>

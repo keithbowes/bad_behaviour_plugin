@@ -107,7 +107,7 @@ class bad_behaviour_plugin extends Plugin
 		else
 			$ms = number_format(1000 * $bb2_timer_total, 3);
 
-		add_headline("\n<!-- " . $this->T_('Bad Behaviour') . ' ' . BB2_VERSION . ', ' . $this->T_('run time: ') . $ms . ' ' . $this->T_('milliseconds') . " -->\n");
+		add_headline(sprintf($this->T_("\n<!-- %1\$s %2\$s, run time: %3\$s milliseconds -->\n"), $this->T_('Bad Behaviour'), BB2_VERSION, $ms));
 		add_headline($bb2_javascript);
 	}
 
@@ -244,7 +244,7 @@ class bad_behaviour_plugin extends Plugin
 
 		$query = "SELECT * FROM " . $this->log_table . " WHERE `key` NOT LIKE '00000000'";
 		$blocked_list = bb2_db_query( $query );
-		echo '<h2>'.$this->T_('Bad Behaviour') . $this->T_(' has blocked the following access attempts in the last 7 days').'</h2>';
+		printf($this->T_('<h2>%s has blocked the following access attempts in the last 7 days.</h2>', $this->T_('Bad Behaviour')));
 		$count = 0;
 		foreach( $blocked_list as $access_attempt ) 
 		{
@@ -291,8 +291,8 @@ class bad_behaviour_plugin extends Plugin
 
 			$count++;
       }
-		echo '<p>' . $this->T_('A total of ') . $count . $this->T_(' access attempts blocked.') . '</p>';
-		echo '<p>' .$this->T_('More about ') . '<a href="http://www.bad-behavior.ioerror.us/">' .$this->T_('Bad Behaviour') . '</a></p>';
+		printf($this->T_('<p>A total of %d access attepts blocked.</p>'), $count);
+		printf($this->T_('<p>More about <a href="http://www.bad-behavior.ioerror.us/">%s</a></p>'), $this->T_('Bad Behaviour'));
 	}
 
 	function SkinEndHtmlBody( & $params )
@@ -307,11 +307,11 @@ class bad_behaviour_plugin extends Plugin
 
 			if ($blocked !== FALSE)
 			{
-				printf('<div><a href="http://www.bad-behavior.ioerror.us/"><cite>%1$s</cite></a> %2$s <strong>%3$s</strong> %4$s</div>' . "\n", $this->T_('Bad Behaviour'), $this->T_('has blocked'), $blocked[0]["COUNT(*)"], $this->T_('access attempts in the last 7 days.'));
+				printf($this->T_('<div><a href="http://www.bad-behavior.ioerror.us/"><cite>%1$s</cite></a> has blocked %2$d access attempts in the last 7 days.</div>' . "\n"), $this->T_('Bad Behaviour'), $blocked[0]["COUNT(*)"]);
 			}
 		}
 		if (@!empty($bb2_result)) {
-		printf($this->T_("\n<!-- %s result was %s! This request would have been blocked. -->\n"), $this->T_('Bad Behaviour'), $bb2_result);
+		printf($this->T_("\n<!-- %1$s result was %1$s! This request would have been blocked. -->\n"), $this->T_('Bad Behaviour'), $bb2_result);
 		unset($bb2_result);
 		}
 	}

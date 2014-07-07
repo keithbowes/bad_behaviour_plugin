@@ -7,12 +7,11 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: bad_behaviour_plugin 0.2\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2013-12-22 22:24-0500\nPO-Revision-Date: 2013-12-22 22:42-0500\nLanguage-Team: eo\nLast-Translator: Me, of course\nLanguage: \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n",
+'' => "Project-Id-Version: bad_behaviour_plugin 0.2\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-06-15 05:01-0400\nPO-Revision-Date: 2014-06-15 05:02-0400\nLast-Translator: Me, of course\nLanguage-Team: eo\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n",
 'Bad Behaviour Plugin for b2evolution' => 'La kromprogramo Bad Behaviour (Riproĉinda Konduto) por b2evolution',
 'The Web\'s premier link spam killer.' => 'La unuaranga haltigilo de la ligilaj spamaĵoj en la TTT.',
+"\n<!-- %1\$s %2\$s, run time: %3\$s milliseconds -->\n" => "\n<!-- %1\$s %2\$s, plenumtempo: %3\$s milisekundoj -->\n",
 'Bad Behaviour' => 'Bad Behaviour (Riproĉinda Konduto)',
-'milliseconds' => 'milisekundoj',
-'run time: ' => 'plenumtempo: ',
 'Display Stats' => 'Montri statistikaĵojn',
 'Strict' => 'Severa',
 'Strict checking (blocks more spam but may block some people)' => 'Severa kontrolado (baros pli da spamaĵoj, sed eble baros homojn)',
@@ -39,7 +38,7 @@ $trans['eo_EO'] = array(
 'List of user agents that are never filtered.  ' => 'Listo de TTT-legiloj, kiuj ne filtriĝos. ',
 'Whitelist URLs' => 'Retadresoj en la blankolisto',
 'List of URLs that are never filtered.  ' => 'Listo de retadresoj, kiuj ne filtriĝos. ',
-' has blocked the following access attempts in the last 7 days' => ' baris atingo-provojn dum la pasintaj 7 tagoj.',
+'<h2>%s has blocked the following access attempts in the last 7 days.</h2>' => '<h2>%s baris la jenajn atingo-provojn dum la pasintaj 7 tagoj.</h2>',
 'IP' => 'IP-adreso',
 'More information about this ip address' => 'Pliaj informoj pri tiu IP-adreso',
 'Date' => 'Dato',
@@ -49,12 +48,9 @@ $trans['eo_EO'] = array(
 'User Agent' => 'TTT-legilo',
 'Explanation' => 'Klarigo',
 'Code' => 'Kodo',
-' access attempts blocked.' => ' atingo-provoj baritaj.',
-'A total of ' => 'Sume de ',
-'More about ' => 'Pli pri ',
-'access attempts in the last 7 days.' => 'atingo-provojn dum la pasintaj 7 tagoj.',
-'has blocked' => 'estas barinta',
-"\n<!-- %s result was %s! This request would have been blocked. -->\n" => "\n<!-- La rezulto el %s estis %s! Tiu peto estus estinta barita. -->\n",
+'<p>A total of %d access attepts blocked.</p>' => '<p>Sume de %d atingo-provoj baritaj.</p>',
+'<p>More about <a href="http://www.bad-behavior.ioerror.us/">%s</a></p>' => '<p>Pli pri <a href="http://www.bad-behavior.ioerror.us/">%s</a></p>',
+"<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1\$s</cite></a> has blocked %2\$d access attempts in the last 7 days.</div>\n" => "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1\$s</cite></a> baris %2\$d atingo-provojn dum la pasintaj 7 tagoj.</div>\n",
 
 );
 ?>
