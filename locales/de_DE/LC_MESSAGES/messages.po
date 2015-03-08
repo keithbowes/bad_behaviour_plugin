@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-06-15 05:01-0400\n"
-"PO-Revision-Date: 2014-06-15 05:05-0400\n"
+"PO-Revision-Date: 2014-12-22 16:16-0500\n"
 "Last-Translator: Keith <keith@localhost>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -154,7 +154,7 @@ msgstr "Liste URLS, die nie gefiltert werden.  "
 #: ../../../_bad_behaviour.plugin.php:247
 #, php-format
 msgid "<h2>%s has blocked the following access attempts in the last 7 days.</h2>"
-msgstr "<h2>%s hat die folgende Zugriffsversuche in die letzen 7 Tagen blockiert.</h2>"
+msgstr "<h2>%s hat die folgenden Zugriffsversuche in den letzen 7 Tagen blockiert.</h2>"
 
 #: ../../../_bad_behaviour.plugin.php:254
 msgid "IP"
@@ -205,4 +205,4 @@ msgstr "<p>Mehr über <a href=\"http://www.bad-behavior.ioerror.us/\">%s</a></p>
 #: ../../../_bad_behaviour.plugin.php:310
 #, php-format
 msgid "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1$s</cite></a> has blocked %2$d access attempts in the last 7 days.</div>\n"
-msgstr "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1$s</cite></a> hat %2$d Zugriffsversuche in den letzen 7 Tage blockiert.</div>\n"
+msgstr "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1$s</cite></a> hat %2$d Zugriffsversuche in den letzen 7 Tagen blockiert.</div>\n"
