@@ -137,9 +137,6 @@ class bad_behaviour_plugin extends Plugin
 
 	function GetDefaultSettings( & $params )
 	{
-		$this->settings = (array) @parse_ini_file(BB2_CWD . '/settings.ini');
-		$whitelist = (array) @parse_ini_file(BB2_CWD . '/whitelist.ini');
-
 		return array(
 			'display_stats' => array(
 				'label' => $this->plug->T_('Display Stats'),
@@ -214,19 +211,19 @@ class bad_behaviour_plugin extends Plugin
 			'whitelist_ips' => array(
 				'label' => $this->plug->T_('Whitelist IP addresses'),
 				'type' => 'textarea',
-				'defaultvalue' => implode("\n", (array) @$whitelist['ip']),
+				'defaultvalue' => "64.191.203.0/24\n208.67.217.130\n10.0.0.0/8\n172.16.0.0./12\n192.168.0.0/16",
 				'note' => $this->plug->T_('List of IP addresses that are never filtered.  ') . $this->plug->T_('One per line.'),
 			),
 			'whitelist_user_agents' => array(
 				'label' => $this->plug->T_('Whitelist user agents'),
 				'type' => 'textarea',
-				'defaultvalue' => implode("\n", (array) @$whitelist['useragent']),
+				'defaultvalue' => '',
 				'note' => $this->plug->T_('List of user agents that are never filtered.  ') . $this->plug->T_('One per line.'),
 			),
 			'whitelist_urls' => array(
 				'label' => $this->plug->T_('Whitelist URLs'),
 				'type' => 'textarea',
-				'defaultvalue' => implode("\n", (array) @$whitelist['url']),
+				'defaultvalue' => "/example.php\n/openid/server",
 				'note' => $this->plug->T_('List of URLs that are never filtered.  ') . $this->plug->T_('One per line.'),
 			),
 		);
@@ -379,14 +376,12 @@ function bb2_read_whitelist() {
 		return $bb2_whitelist;
 
 	$settings = bb2_read_settings();
-	$whitelist = (array) @parse_ini_file(BB2_CWD . '/whitelist.ini');
 
-	$ret = array();
-	$ret['ip'] = explode("\n", $settings['whitelist_ips']);
-	$ret['useragent'] = explode("\n", $settings['whitelist_user_agents']);
-	$ret['url'] = explode("\n", $settings['whitelist_urls']);
+	$bb2_whitelist = array();
+	$bb2_whitelist['ip'] = explode("\n", $settings['whitelist_ips']);
+	$bb2_whitelist['useragent'] = explode("\n", $settings['whitelist_user_agents']);
+	$bb2_whitelist['url'] = explode("\n", $settings['whitelist_urls']);
 
-	$bb2_whitelist = @array_merge($whitelist, $ret);
 	return $bb2_whitelist;
 }
 
@@ -398,29 +393,27 @@ function bb2_read_settings() {
 
 	global $Plugins;
 	$plug = $Plugins->get_by_code( 'b2_bad_behaviour' );
-	$ret = array();
-	$ret['log_table'] = $plug->log_table;
+	$bb2_settings = array();
+	$bb2_settings['log_table'] = $plug->log_table;
 
-	$ret['display_stats'] = $plug->Settings->get('display_stats');
-	$ret['strict'] = $plug->Settings->get('strict');
-	$ret['verbose'] = $plug->Settings->get('verbose');
-	$ret['logging'] = $plug->Settings->get('logging');
-	$ret['httpbl_key'] = $plug->Settings->get('httpbl_key');
-	$ret['httpbl_threat'] = $plug->Settings->get('httpbl_threat');
-	$ret['httpbl_maxage'] = $plug->Settings->get('httpbl_maxage');
-	$ret['offsite_forms'] = $plug->Settings->get('offsite_forms');
-	$ret['eu_cookie'] = $plug->Settings->get('eu_cookie');
-	$ret['reverse_proxy'] = $plug->Settings->get('reverse_proxy');
-	$ret['reverse_proxy_header'] = $plug->Settings->get('reverse_proxy_header');
-	$ret['reverse_proxy_addresses'] = explode("\n", $plug->Settings->get('reverse_proxy_addresses'));
+	$bb2_settings['display_stats'] = $plug->Settings->get('display_stats');
+	$bb2_settings['strict'] = $plug->Settings->get('strict');
+	$bb2_settings['verbose'] = $plug->Settings->get('verbose');
+	$bb2_settings['logging'] = $plug->Settings->get('logging');
+	$bb2_settings['httpbl_key'] = $plug->Settings->get('httpbl_key');
+	$bb2_settings['httpbl_threat'] = $plug->Settings->get('httpbl_threat');
+	$bb2_settings['httpbl_maxage'] = $plug->Settings->get('httpbl_maxage');
+	$bb2_settings['offsite_forms'] = $plug->Settings->get('offsite_forms');
+	$bb2_settings['eu_cookie'] = $plug->Settings->get('eu_cookie');
+	$bb2_settings['reverse_proxy'] = $plug->Settings->get('reverse_proxy');
+	$bb2_settings['reverse_proxy_header'] = $plug->Settings->get('reverse_proxy_header');
+	$bb2_settings['reverse_proxy_addresses'] = explode("\n", $plug->Settings->get('reverse_proxy_addresses'));
 
 	/* Whitelist settings */
-	$ret['whitelist_ips'] = $plug->Settings->get('whitelist_ips');
-	$ret['whitelist_user_agents'] = $plug->Settings->get('whitelist_user_agents');
-	$ret['whitelist_urls'] = $plug->Settings->get('whitelist_urls');
+	$bb2_settings['whitelist_ips'] = $plug->Settings->get('whitelist_ips');
+	$bb2_settings['whitelist_user_agents'] = $plug->Settings->get('whitelist_user_agents');
+	$bb2_settings['whitelist_urls'] = $plug->Settings->get('whitelist_urls');
 
-	$settings = (array) @parse_ini_file(BB2_CWD . "/settings.ini");
-	$bb2_settings = array_merge($settings, $ret);
 	return $bb2_settings;
 }
 
