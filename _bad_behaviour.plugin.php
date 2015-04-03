@@ -107,6 +107,7 @@ class bad_behaviour_plugin extends Plugin
 		else
 			$ms = number_format(1000 * $bb2_timer_total, 3);
 
+		/* TRANS: The first two format chars are for the name and version of Bad Behaviour */
 		add_headline(sprintf($this->T_("\n<!-- %1\$s %2\$s, run time: %3\$s milliseconds -->\n"), $this->T_('Bad Behaviour'), BB2_VERSION, $ms));
 		add_headline($bb2_javascript);
 	}
@@ -308,8 +309,9 @@ class bad_behaviour_plugin extends Plugin
 			}
 		}
 		if (@!empty($bb2_result)) {
-		printf($this->T_("\n<!-- %1$s result was %1$s! This request would have been blocked. -->\n"), $this->T_('Bad Behaviour'), $bb2_result);
-		unset($bb2_result);
+			/* TRANS: The first format char is for the Bad Behaviour name.  The second is for the hypothetical result. */
+			printf($this->T_("\n<!-- %1$s result was %2$s! This request would have been blocked. -->\n"), $this->T_('Bad Behaviour'), $bb2_result);
+			unset($bb2_result);
 		}
 	}
 }
