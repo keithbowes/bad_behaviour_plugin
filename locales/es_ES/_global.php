@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['es_ES'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-06-15 05:01-0400\nPO-Revision-Date: 2014-06-15 05:09-0400\nLast-Translator: Keith <keith@localhost>\nLanguage-Team: Spanish\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-06-15 05:01-0400\nPO-Revision-Date: 2015-04-12 20:34-0400\nLast-Translator: Keith <keith@localhost>\nLanguage-Team: Spanish\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Bad Behaviour Plugin for b2evolution' => 'Complemento de Bad Behaviour para b2evolution',
 'The Web\'s premier link spam killer.' => 'El mejor matador de spam de enlaces en el web',
 "\n<!-- %1\$s %2\$s, run time: %3\$s milliseconds -->\n" => "\n<!-- %1\$s %2\$s, tiempo de ejecución: %3\$s milisegundos -->\n",
@@ -50,7 +50,7 @@ $trans['es_ES'] = array(
 'Code' => 'Código',
 '<p>A total of %d access attepts blocked.</p>' => '<p>Un total de %d intentos de acceso bloqueados.</p>',
 '<p>More about <a href="http://www.bad-behavior.ioerror.us/">%s</a></p>' => '<p>Más sobre <a href="http://www.bad-behavior.ioerror.us/">%s</a></p>',
-"<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1\$s</cite></a> has blocked %2\$d access attempts in the last 7 days.</div>\n" => "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1\$s</cite></a> ha bloqueado %2\$d intentos de acceso in los últimos 7 días.</div>\n",
+"<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1\$s</cite></a> has blocked %2\$d access attempts in the last 7 days.</div>\n" => "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1\$s</cite></a> ha bloqueado %2\$d intentos de acceso en los últimos 7 días.</div>\n",
 
 );
 ?>

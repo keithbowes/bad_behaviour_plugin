@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-06-15 05:01-0400\n"
-"PO-Revision-Date: 2014-06-15 05:09-0400\n"
+"PO-Revision-Date: 2015-04-12 20:34-0400\n"
 "Last-Translator: Keith <keith@localhost>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -205,4 +205,4 @@ msgstr "<p>Más sobre <a href=\"http://www.bad-behavior.ioerror.us/\">%s</a></p>
 #: ../../../_bad_behaviour.plugin.php:310
 #, php-format
 msgid "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1$s</cite></a> has blocked %2$d access attempts in the last 7 days.</div>\n"
-msgstr "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1$s</cite></a> ha bloqueado %2$d intentos de acceso in los últimos 7 días.</div>\n"
+msgstr "<div><a href=\"http://www.bad-behavior.ioerror.us/\"><cite>%1$s</cite></a> ha bloqueado %2$d intentos de acceso en los últimos 7 días.</div>\n"
