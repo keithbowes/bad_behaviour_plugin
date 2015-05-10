@@ -5,7 +5,7 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
-$trans['eo_EO'] = array(
+$trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
 '' => "Project-Id-Version: bad_behaviour_plugin 0.2\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-06-15 05:01-0400\nPO-Revision-Date: 2014-06-15 05:02-0400\nLast-Translator: Me, of course\nLanguage-Team: eo\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n",
 'Bad Behaviour Plugin for b2evolution' => 'La kromprogramo Bad Behaviour (Riproĉinda Konduto) por b2evolution',
