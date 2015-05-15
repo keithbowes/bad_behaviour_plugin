@@ -242,7 +242,7 @@ class bad_behaviour_plugin extends Plugin
 
 		$query = "SELECT * FROM " . $this->log_table . " WHERE `key` NOT LIKE '00000000'";
 		$blocked_list = bb2_db_query( $query );
-		printf($this->T_('<h2>%s has blocked the following access attempts in the last 7 days.</h2>', $this->T_('Bad Behaviour')));
+		printf($this->T_('<h2>%s has blocked the following access attempts in the last 7 days.</h2>'), $this->T_('Bad Behaviour'));
 		$count = 0;
 		foreach( $blocked_list as $access_attempt ) 
 		{
@@ -260,7 +260,7 @@ class bad_behaviour_plugin extends Plugin
 
 			$url = parse_url($baseurl);
 			$url['path'] = $access_attempt['request_uri'];
-			$url = sprintf("%s://%s:%u%s", $url['scheme'], $url['host'], $url['port'], $url['path']);
+			$url = sprintf("%s://%s:%u%s", $url['scheme'], $url['host'], @$url['port'], $url['path']);
 			echo '<tr>'."\n";
 			echo '<th width="10%">'.$this->T_('Request URI').'</th>';
 			echo '<td><a href="' . $url .'" title="' . $this->T_('View this uri on your blog') . '">'. $access_attempt['request_uri'] .'</a></td>'."\n";
