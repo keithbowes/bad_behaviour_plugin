@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: bad_behaviour_plugin 0.2\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-06-15 05:01-0400\n"
-"PO-Revision-Date: 2014-06-15 05:02-0400\n"
+"PO-Revision-Date: 2015-05-31 18:20-0400\n"
 "Last-Translator: Me, of course\n"
 "Language-Team: eo\n"
 "Language: eo\n"
@@ -141,11 +141,11 @@ msgstr "Listo de TTT-legiloj, kiuj ne filtriĝos. "
 
 #: ../../../_bad_behaviour.plugin.php:227
 msgid "Whitelist URLs"
-msgstr "Retadresoj en la blankolisto"
+msgstr "URL-oj en la blankolisto"
 
 #: ../../../_bad_behaviour.plugin.php:230
 msgid "List of URLs that are never filtered.  "
-msgstr "Listo de retadresoj, kiuj ne filtriĝos. "
+msgstr "Listo de URL-oj, kiuj ne filtriĝos. "
 
 #: ../../../_bad_behaviour.plugin.php:247
 #, php-format
@@ -166,11 +166,11 @@ msgstr "Dato"
 
 #: ../../../_bad_behaviour.plugin.php:267
 msgid "Request URI"
-msgstr "Petita retadreso"
+msgstr "Petita URI"
 
 #: ../../../_bad_behaviour.plugin.php:268
 msgid "View this uri on your blog"
-msgstr "Vidi tiun retadreson en via blogo"
+msgstr "Vidi tiun URI en via blogo"
 
 #: ../../../_bad_behaviour.plugin.php:272
 msgid "HTTP Headers"
