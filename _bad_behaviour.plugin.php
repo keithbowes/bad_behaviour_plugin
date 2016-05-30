@@ -85,7 +85,7 @@ class bad_behaviour_plugin extends Plugin
 				{
 					/* Change the default date to what it's supposed to be */
 					case 'date':
-						bb2_db_query("ALTER TABLE `$tablename` MODIFY `$field_name` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'"); 
+						bb2_db_query("ALTER TABLE `$tablename` MODIFY `$field_name` DATETIME NOT NULL DEFAULT '1970-01-01 00:00:00'"); 
 						break;
 					/*change the old field names 'kkey' and 'request_key' to the new one 'key' */
 					case 'kkey':
