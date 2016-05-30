@@ -102,8 +102,10 @@ class bad_behaviour_plugin extends Plugin
 		global $bb2_timer_total;
 		global $bb2_javascript;
 
+		/* Use NumberFormatter if possible, so we can get localized number formats */
 		if (class_exists('NumberFormatter'))
-			$ms = numfmt_format(numfmt_create(locale_lang(false), NumberFormatter::PATTERN_DECIMAL, '#,##0.000'), 1000 * $bb2_timer_total);
+			$ms = (new NumberFormatter(locale_lang(false), NumberFormatter::PATTERN_DECIMAL, '#,##0.000'))->format(1000 * $bb2_timer_total);
+		/* If not, we can just use the US-English number format */
 		else
 			$ms = number_format(1000 * $bb2_timer_total, 3);
 
