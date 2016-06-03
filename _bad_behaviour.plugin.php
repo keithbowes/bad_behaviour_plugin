@@ -73,9 +73,9 @@ class bad_behaviour_plugin extends Plugin
 		{
 			return array(bb2_table_structure($tablename));
 		}
+		/* If the table does exist, do some conversions from old versions */
 		else
 		{
-			/* If the table does exist, do some conversions from old versions */
 			$res = bb2_db_query("SHOW COLUMNS FROM `$tablename`");
 			$num_rows = bb2_db_num_rows($res);
 			for ($i = 1; $num_rows > 1 && $i < $num_rows; $i++)
@@ -104,7 +104,10 @@ class bad_behaviour_plugin extends Plugin
 
 		/* Use NumberFormatter if possible, so we can get localized number formats */
 		if (class_exists('NumberFormatter'))
-			$ms = (new NumberFormatter(locale_lang(false), NumberFormatter::PATTERN_DECIMAL, '#,##0.000'))->format(1000 * $bb2_timer_total);
+		{
+			$nf =new NumberFormatter(locale_lang(false), NumberFormatter::PATTERN_DECIMAL, '#,##0.000');
+			$ms = $nf->format(1000 * $bb2_timer_total);
+		}
 		/* If not, we can just use the US-English number format */
 		else
 			$ms = number_format(1000 * $bb2_timer_total, 3);
@@ -132,10 +135,7 @@ class bad_behaviour_plugin extends Plugin
 	 */
 	function get_default_value($name, $default)
 	{
-		if (isset($this->settings[$name]))
-			return $this->settings[$name];
-		else
-			return $default;
+		return isset($this->settings[$name]) ? $this->settings[$name] : $default;
 	}
 
 	function GetDefaultSettings( & $params )
@@ -347,12 +347,12 @@ function bb2_db_num_rows($result) {
 // Should return FALSE if an error occurred.
 // Bad Behavior will use the return value here in other callbacks.
 function bb2_db_query($query) {
-	global $DB, $debug;
+	global $DB, $old_errors;
 
+	$old_errors = $DB->show_errors;
 	$DB->show_errors = FALSE;
 	$result = $DB->get_results($query, ARRAY_A);
-	if (isset($debug) && $debug !== 0)
-		$DB->show_errors = TRUE;
+	$DB->show_errors = $old_errors;
 	if ($DB->error) {
 		return FALSE;
 	}
@@ -463,10 +463,7 @@ function bb2_insert_stats($force = false) {
 
 // Return the top-level relative path of wherever we are (for cookies)
 function bb2_relative_path() {
-	global $Blog;
-	$url = parse_url($Blog->gen_baseurl());
-	if (array_key_exists('path', $url))
-		return $url['path'];
-	return '';
+	global $cookie_path;
+	return $cookie_path;
 }
 ?>
