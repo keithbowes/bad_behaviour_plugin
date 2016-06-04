@@ -197,7 +197,7 @@ class bad_behaviour_plugin extends Plugin
 			),
 			'reverse_proxy_addresses' => array(
 				'label' => $this->plug->T_('Reverse proxy addresses'),
-				'type' => 'textarea',
+				'type' => 'html_textarea',
 				'defaultvalue' => array(),
 				'note' => $this->plug->T_('List of IP addresses of your reverse proxy.  ') . $this->plug->T_('One per line.'),
 			),
@@ -205,19 +205,19 @@ class bad_behaviour_plugin extends Plugin
 			/* Whitelist options */
 			'whitelist_ips' => array(
 				'label' => $this->plug->T_('Whitelist IP addresses'),
-				'type' => 'textarea',
+				'type' => 'html_textarea',
 				'defaultvalue' => implode("\n", array('64.191.203.0/24', '208.67.217.130', '10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16')),
 				'note' => $this->plug->T_('List of IP addresses that are never filtered.  ') . $this->plug->T_('One per line.'),
 			),
 			'whitelist_user_agents' => array(
 				'label' => $this->plug->T_('Whitelist user agents'),
-				'type' => 'textarea',
+				'type' => 'html_textarea',
 				'defaultvalue' => '',
 				'note' => $this->plug->T_('List of user agents that are never filtered.  ') . $this->plug->T_('One per line.'),
 			),
 			'whitelist_urls' => array(
 				'label' => $this->plug->T_('Whitelist URLs'),
-				'type' => 'textarea',
+				'type' => 'html_textarea',
 				'defaultvalue' => implode("\n", array('/example.php', '/openid/server')),
 				'note' => $this->plug->T_('List of URLs that are never filtered.  ') . $this->plug->T_('One per line.'),
 			),
