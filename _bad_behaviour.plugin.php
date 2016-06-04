@@ -130,83 +130,75 @@ class bad_behaviour_plugin extends Plugin
 		$bb2_timer_total = $bb2_timer_stop - $bb2_timer_start;
 	}
 
-	/**
-	 * Define settings that the plugin uses/provides.
-	 */
-	function get_default_value($name, $default)
-	{
-		return isset($this->settings[$name]) ? $this->settings[$name] : $default;
-	}
-
 	function GetDefaultSettings( & $params )
 	{
 		return array(
 			'display_stats' => array(
 				'label' => $this->plug->T_('Display Stats'),
 				'type' => 'checkbox',
-				'defaultvalue' => $this->get_default_value('display_stats', 1),
+				'defaultvalue' => 1,
 			),
 			'strict' => array(
 				'label' => $this->plug->T_('Strict'),
 				'type' => 'checkbox',
-				'defaultvalue' => $this->get_default_value('strict', 0),
+				'defaultvalue' => 0,
 				'note' => $this->plug->T_('Strict checking (blocks more spam but may block some people)')
 			),
 			'logging' => array(
 				'label' => $this->plug->T_('Logging'),
 				'type' => 'checkbox',
-				'defaultvalue' => $this->get_default_value('logging', 1),
+				'defaultvalue' => 1,
 				'note' => $this->plug->T_('HTTP request logging (recommended)'),
 			),
 			'verbose' => array(
 				'label' => $this->plug->T_('Verbose Logging'),
 				'type'=>'checkbox',
-				'defaultvalue' => $this->get_default_value('verbose', 0),
+				'defaultvalue' => 0,
 				'note' => $this->plug->T_('Log all requests'),
 			),
 			'httpbl_key' =>array(
 				'label' => $this->plug->T_('http:BL Access Key'),
 				'type'  => 'text',
 				'maxlength' => 12,
-				'defaultvalue' => $this->get_default_value('httpbl_key', ''),
+				'defaultvalue' => '',
 			),
 			'httpbl_threat' => array(
 				'label' => $this->plug->T_('Minimum Threat Level (25 is recommended)'),
 				'type'  => 'text',
-				'defaultvalue' => $this->get_default_value('httpbl_threat', 25),
+				'defaultvalue' => 25,
 			),
 			'httpbl_maxage' => array(
 				'label' => $this->plug->T_('Maximum Age of Data (30 is recommended)'),
 				'type'  => 'text',
-				'defaultvalue' => $this->get_default_value('httpbl_maxage', 30),
+				'defaultvalue' => 30,
 			),
 			'offsite_forms' => array(
 				'label' => $this->plug->T_('Offsite forms'),
 				'type' => 'checkbox',
-				'defaultvalue' => $this->get_default_value('offsete_forms', 0),
+				'defaultvalue' => 0,
 				'note' => $this->plug->T_('Allow forms submitted from other websites'),
 			),
 			'eu_cookie' => array(
 				'label' => $this->plug->T_('Strict EU cookies'),
 				'type' => 'checkbox',
-				'defaultvalue' => $this->get_default_value('eu_cookie', 0),
+				'defaultvalue' => 0,
 				'note' => $this->plug->T_('Disables cookie-based filters'),
 			),
 			'reverse_proxy' => array(
 				'label' => $this->plug->T_('Reverse Proxy'),
 				'type' => 'checkbox',
-				'defaultvalue' => $this->get_default_value('reverse_proxy', 0),
+				'defaultvalue' => 0,
 				'note' => $this->plug->T_('This site is behind a reverse proxy'),
 			),
 			'reverse_proxy_header' => array(
 				'label' => $this->plug->T_('Reverse proxy header'),
 				'type' => 'text',
-				'defaultvalue' => $this->get_default_value('reverse_proxy_header', 'X-Forwarded-For'),
+				'defaultvalue' => 'X-Forwarded-For',
 			),
 			'reverse_proxy_addresses' => array(
 				'label' => $this->plug->T_('Reverse proxy addresses'),
 				'type' => 'textarea',
-				'defaultvalue' => implode("\n", (array) $this->get_default_value('reverse_proxy_addresses', array())),
+				'defaultvalue' => array(),
 				'note' => $this->plug->T_('List of IP addresses of your reverse proxy.  ') . $this->plug->T_('One per line.'),
 			),
 
@@ -214,7 +206,7 @@ class bad_behaviour_plugin extends Plugin
 			'whitelist_ips' => array(
 				'label' => $this->plug->T_('Whitelist IP addresses'),
 				'type' => 'textarea',
-				'defaultvalue' => "64.191.203.0/24\n208.67.217.130\n10.0.0.0/8\n172.16.0.0./12\n192.168.0.0/16",
+				'defaultvalue' => implode("\n", array('64.191.203.0/24', '208.67.217.130', '10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16')),
 				'note' => $this->plug->T_('List of IP addresses that are never filtered.  ') . $this->plug->T_('One per line.'),
 			),
 			'whitelist_user_agents' => array(
@@ -226,7 +218,7 @@ class bad_behaviour_plugin extends Plugin
 			'whitelist_urls' => array(
 				'label' => $this->plug->T_('Whitelist URLs'),
 				'type' => 'textarea',
-				'defaultvalue' => "/example.php\n/openid/server",
+				'defaultvalue' => implode("\n", array('/example.php', '/openid/server')),
 				'note' => $this->plug->T_('List of URLs that are never filtered.  ') . $this->plug->T_('One per line.'),
 			),
 		);
@@ -297,10 +289,9 @@ class bad_behaviour_plugin extends Plugin
 
 	function SkinEndHtmlBody( & $params )
 	{
-		global $bb2_result;
-		$settings = bb2_read_settings();
+		global $bb2_result, $bb2_settings;
 
-		if ($settings['display_stats'])
+		if ($bb2_settings['display_stats'])
 		{
 			$query = 'SELECT COUNT(*) FROM `' . $this->log_table . '` WHERE `key` NOT LIKE \'00000000\'';
 			$blocked = bb2_db_query( $query );
@@ -379,12 +370,11 @@ function bb2_read_whitelist() {
 	if (isset($bb2_whitelist))
 		return $bb2_whitelist;
 
-	$settings = bb2_read_settings();
+	global $bb2_settings;
 
-	$bb2_whitelist = array();
-	$bb2_whitelist['ip'] = explode("\n", $settings['whitelist_ips']);
-	$bb2_whitelist['useragent'] = explode("\n", $settings['whitelist_user_agents']);
-	$bb2_whitelist['url'] = explode("\n", $settings['whitelist_urls']);
+	$bb2_whitelist['ip'] = explode("\n", $bb2_settings['whitelist_ips']);
+	$bb2_whitelist['useragent'] = explode("\n", $bb2_settings['whitelist_user_agents']);
+	$bb2_whitelist['url'] = explode("\n", $bb2_settings['whitelist_urls']);
 
 	return $bb2_whitelist;
 }
@@ -397,7 +387,6 @@ function bb2_read_settings() {
 
 	global $Plugins;
 	$plug = $Plugins->get_by_code( 'b2_bad_behaviour' );
-	$bb2_settings = array();
 	$bb2_settings['log_table'] = $plug->log_table;
 
 	$bb2_settings['display_stats'] = $plug->Settings->get('display_stats');
