@@ -316,14 +316,12 @@ function bb2_db_date() {
 // Return affected rows from most recent query.
 function bb2_db_affected_rows() {
 	global $DB;
-
 	return $DB->rows_affected;
 }
 
 // Escape a string for database usage
 function bb2_db_escape($string) {
 	global $DB;
-
 	return $DB->escape($string);
 }
 
