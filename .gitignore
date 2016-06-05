@@ -1,0 +1,7 @@
+bad-behavior/
+bad-behavior-*.php
+index.html
+*.ini
+*.png
+*.txt
+*~

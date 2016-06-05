@@ -30,19 +30,19 @@ class bad_behaviour_plugin extends Plugin
 	/**
 	 * Code, if this is a renderer or pingback plugin.
 	 */
-	var $code = 'b2_bad_behaviour';
-	var $priority = 50;
-	var $version = '0.4';
-	var $author = 'https://github.com/keithbowes/bad_behaviour_plugin';
-	var $help_url = 'http://bad-behavior.ioerror.us/support/';
-	var $group = 'antispam';
+	public $code = 'b2_bad_behaviour';
+	public $priority = 50;
+	public $version = '0.4';
+	public $author = 'https://github.com/keithbowes/bad_behaviour_plugin';
+	public $help_url = 'http://bad-behavior.ioerror.us/support/';
+	public $group = 'antispam';
 
-	var $apply_rendering = 'opt-in';
-	var $number_of_installs = 1;
+	public $apply_rendering = 'opt-in';
+	public $number_of_installs = 1;
 
-	var $log_table;
+	public $log_table;
 	/* Workaround to get Plugin::T_() to work with the plugin admin page */
-	var $plug;
+	public $plug;
 
 	/**
 	 * Init
@@ -198,7 +198,7 @@ class bad_behaviour_plugin extends Plugin
 			'reverse_proxy_addresses' => array(
 				'label' => $this->plug->T_('Reverse proxy addresses'),
 				'type' => 'html_textarea',
-				'defaultvalue' => array(),
+				'defaultvalue' => implode("\n", array()),
 				'note' => $this->plug->T_('List of IP addresses of your reverse proxy.  ') . $this->plug->T_('One per line.'),
 			),
 

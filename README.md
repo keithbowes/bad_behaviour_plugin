@@ -10,12 +10,11 @@ Figure 1 shows the [necessary directory layout](#fig1).
 
 Jen [la aranĝo de via b2evolution-instalaĵo](#fig1).
 
-### Getting the Bad Behavior files/Atingado do la dosieroj de Bad Behavior ###
+### Getting the Bad Behavior files/Atingado de la dosieroj de Bad Behavior ###
 <pre id="instal"><kbd>
 cd plugins
 git clone https://github.com/keithbowes/bad_behaviour_plugin.git
 cd bad_behaviour_plugin
-rm -f gpl-3.0.txt
 svn co https://plugins.svn.wordpress.org/bad-behavior/trunk/ .
 </kbd></pre>
 
