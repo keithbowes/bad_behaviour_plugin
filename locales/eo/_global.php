@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: bad_behaviour_plugin 0.2\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-06-15 05:01-0400\nPO-Revision-Date: 2015-05-31 18:20-0400\nLast-Translator: Me, of course\nLanguage-Team: eo\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n",
+'' => "Project-Id-Version: bad_behaviour_plugin 0.2\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2017-02-24 15:03-0500\nPO-Revision-Date: 2017-02-24 15:00-0500\nLast-Translator: Me, of course\nLanguage-Team: eo\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n",
 'Bad Behaviour Plugin for b2evolution' => 'La kromprogramo Bad Behaviour (Riproĉinda Konduto) por b2evolution',
 'The Web\'s premier link spam killer.' => 'La unuaranga haltigilo de la ligilaj spamaĵoj en la TTT.',
 "\n<!-- %1\$s %2\$s, run time: %3\$s milliseconds -->\n" => "\n<!-- %1\$s %2\$s, plenumtempo: %3\$s milisekundoj -->\n",
@@ -43,7 +43,7 @@ $trans['eo'] = array(
 'More information about this ip address' => 'Pliaj informoj pri tiu IP-adreso',
 'Date' => 'Dato',
 'Request URI' => 'Petita URI',
-'View this uri on your blog' => 'Vidi tiun URI en via blogo',
+'View this uri on your blog' => 'Vidi tiun URI-on en via blogo',
 'HTTP Headers' => 'HTTP-ĉapoj',
 'User Agent' => 'TTT-legilo',
 'Explanation' => 'Klarigo',
