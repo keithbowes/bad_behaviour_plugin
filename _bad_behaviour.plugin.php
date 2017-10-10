@@ -409,26 +409,6 @@ function bb2_insert_head() {
 	return false;
 }
 
-function bb2_approved_callback($settings, $package) {
-	global $bb2_package;
-
-	// Save package for possible later use
-	$bb2_package = $package;
-}
-
-// Capture missed spam and log it
-function bb2_capture_spam($id, $comment) {
-	global $bb2_package;
-
-	// Capture only spam
-	if ('spam' != $comment->comment_approved) return;
-
-	// Don't capture if HTTP request no longer active
-	if (array_key_exists("request_entity", $bb2_package) && array_key_exists("author", $bb2_package['request_entity']) && $bb2_package['request_entity']['author'] == $comment->comment_author) {
-		bb2_db_query(bb2_insert(bb2_read_settings(), $bb2_package, "00000000"));
-	}
-}
-
 // See bad_behaviour_plugin::SkinEndHtmlBody()
 function bb2_insert_stats($force = false) {
 	return false;
